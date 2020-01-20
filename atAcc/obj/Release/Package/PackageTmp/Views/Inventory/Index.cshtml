@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="/assets/plugins/jquery/jquery.min.js"></script>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Inventory</h4>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="post" id="myForm">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Filter By</label>
+                                        <select class="select2 form-control custom-select" id="filtertype" name="filtertype" required>
+                                            <option value="">Select</option>
+                                            <option value="1">Out of stock</option>
+                                            <option value="2">Recently added</option>
+                                            <option value="3">Product name</option>
+                                            <option value="4">Product group</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">From</label>
+                                        <input type="date" name="datefrom" id="datefrom" class="form-control" placeholder="dd/mm/yyyy" required disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">To</label>
+                                        <input type="date" name="dateto" id="dateto" class="form-control" placeholder="dd/mm/yyyy" required disabled>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" name="productname" id="productname" class="form-control" placeholder="Product name" required disabled>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Group</label>
+                                        <input type="text" name="productgroup" id="productgroup" class="form-control" placeholder="Product group" required disabled>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary" id="inventorybtn">Search</a>
+                        </form>
+                    </div>
+                    <div class="card-body p-b-0">
+                        <div class="table-responsive">
+                            <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" style="cursor: pointer;">
+                                <thead>
+                                    <tr>
+                                     
+                                        <th>Sl.No</th>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Group</th>
+                                        <th>Color</th>
+                                        <th>Base Unit</th>
+                                        <th>HSN Code</th>
+                                        <th>Purchase Rate</th>
+                                        <th>Sales Rate</th>
+                                        <th>Sales Percent</th>
+                                        <th>MRP</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventorytbl"></tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $('#filtertype').change(function () {
+        $('#datefrom').prop("disabled", true);
+        $('#datefrom').val('');
+        $('#dateto').prop("disabled", true);
+        $('#dateto').val('');
+        $('#productname').prop("disabled", true);
+        $('#productname').val('');
+        $('#productgroup').prop("disabled", true);
+        $('#productgroup').val('');
+
+
+        if ($(this).val() == 2) {
+            $('#datefrom').prop("disabled", false);
+            $('#dateto').prop("disabled", false);
+            $('#productgroup').prop("disabled", false);
+        }
+        else if ($(this).val() == 3) {
+            $('#productname').prop("disabled", false);
+        } else if ($(this).val() == 4) {
+            $('#productgroup').prop("disabled", false);
+        }
+    });
+    </script>

@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "ProductView";
+}
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Add product</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item">Forms</li>
+                <li class="breadcrumb-item active">Form Boostrap Validation</li>
+            </ol>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Transaction</h4>
+                        <form role="form" method="post" action="#">
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault01">Current Date</label>
+                                    <input type="date" class="form-control" id="validationDefault01">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault02">Employee ID</label>
+                                    <input type="text" name="employeeid" class="form-control" id="validationDefault02">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault05">Employee</label>
+                                    <input type="text" name="employee" class="form-control" id="validationDefault05">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault03">Transaction ID</label>
+                                    <input type="text" name="transactionid" class="form-control" id="validationDefault03">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Vender Doc Number</label>
+                                    <input type="text" name="venderdocno" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault05">Reference number</label>
+                                    <input type="text" name="referenceno" class="form-control" id="validationDefault05">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault03">Product Barcode</label>
+                                    <input type="text" name="productbarcode" class="form-control" id="validationDefault03">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Standard Cost</label>
+                                    <input type="text" name="stdcost" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault05">Quantity</label>
+                                    <input type="text" name="quantity" class="form-control" id="validationDefault05">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault03">Product Name</label>
+                                    <input type="text" name="productname" class="form-control" id="validationDefault03">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Unit Price</label>
+                                    <input type="number" name="unitprice" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault05">Unit</label>
+                                    <input type="text" name="unit" class="form-control" id="validationDefault05">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault03">Product Code</label>
+                                    <input type="text" name="productcode" class="form-control" id="validationDefault03">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Unit in Stock</label>
+                                    <input type="text" name="unitstock" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault05">Category</label>
+                                    <input type="text" name="category" class="form-control" id="validationDefault05">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault03">Description</label>
+                                    <textarea name="shortDescription"  id="shortDescription1" rows="3" class="form-control"></textarea>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Reorder level</label>
+                                    <input type="text" name="recordlevel" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Supplier</label>
+                                    <input type="text" name="supplier" class="form-control" id="validationDefault04">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationDefault04">Total</label>
+                                    <input type="number" name="total" class="form-control" id="validationDefault04">
+                                </div>
+
+                            </div>
+
+
+
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" type="submit">New</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            @*@include('layouts.footer')*@
+            
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+</div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+
+        

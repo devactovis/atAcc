@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="crm_iktisadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_accountGroupDtls">
+          <Key>
+            <PropertyRef Name="grp_id" />
+          </Key>
+          <Property Name="grp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grp_name" Type="varchar" MaxLength="50" />
+          <Property Name="under" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_accountLedgerDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grp_id" Type="int" />
+          <Property Name="ledger_code" Type="int" />
+          <Property Name="ledger_name" Type="varchar" MaxLength="50" />
+          <Property Name="under" Type="varchar" MaxLength="50" />
+          <Property Name="discount" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_accountMoreDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grp_id" Type="int" />
+          <Property Name="contact_person" Type="varchar" MaxLength="50" />
+          <Property Name="contact_personArabic" Type="nvarchar" MaxLength="50" />
+          <Property Name="addr1" Type="varchar" MaxLength="50" />
+          <Property Name="addr1Arabic" Type="varchar" MaxLength="50" />
+          <Property Name="addr2" Type="varchar" MaxLength="50" />
+          <Property Name="addr2Arabic" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="cityArabic" Type="nchar" MaxLength="10" />
+          <Property Name="postal_code" Type="varchar" MaxLength="50" />
+          <Property Name="tel_no" Type="varchar" MaxLength="50" />
+          <Property Name="acc_id" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="vat_no" Type="varchar" MaxLength="50" />
+          <Property Name="tax_no" Type="varchar" MaxLength="50" />
+          <Property Name="gst_no" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="state_code" Type="varchar" MaxLength="50" />
+          <Property Name="ledger_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_budget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="budget_name" Type="varchar" MaxLength="50" />
+          <Property Name="start_from" Type="date" />
+          <Property Name="up_to" Type="date" />
+          <Property Name="account" Type="bigint" />
+          <Property Name="amount" Type="int" />
+          <Property Name="allocate_tot" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_companyDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comp_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="comp_name" Type="varchar" MaxLength="50" />
+          <Property Name="comp_url" Type="varchar" MaxLength="50" />
+          <Property Name="comp_addr" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="postal_code" Type="varchar" MaxLength="50" />
+          <Property Name="tel_no" Type="varchar" MaxLength="50" />
+          <Property Name="comp_email" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="varchar" MaxLength="50" />
+          <Property Name="comp_fax" Type="varchar" MaxLength="50" />
+          <Property Name="comp_site" Type="varchar" MaxLength="50" />
+          <Property Name="acc_no" Type="varchar" MaxLength="50" />
+          <Property Name="currency" Type="varchar" MaxLength="50" />
+          <Property Name="tax" Type="varchar" MaxLength="50" />
+          <Property Name="vat_no" Type="varchar" MaxLength="50" />
+          <Property Name="vat_pswd" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_creditDebitCard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="card_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_custominvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="party_vno" Type="varchar" MaxLength="50" />
+          <Property Name="invoice_id" Type="varchar" MaxLength="50" />
+          <Property Name="party_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="party_namearabic" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_employeeDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+          <Property Name="emp_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="emp_addr" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="postal_code" Type="int" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" />
+          <Property Name="remarks" Type="varchar" MaxLength="50" />
+          <Property Name="tel_no" Type="bigint" />
+          <Property Name="email_id" Type="varchar" MaxLength="50" />
+          <Property Name="passport_no" Type="bigint" />
+          <Property Name="visa_status" Type="varchar" MaxLength="50" />
+          <Property Name="psprt_expdate" Type="datetime" />
+          <Property Name="visa_date" Type="date" />
+          <Property Name="join_date" Type="date" />
+          <Property Name="is_contract" Type="int" />
+          <Property Name="contract_end" Type="date" />
+          <Property Name="is_employee" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_invoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoice_id" Type="varchar" MaxLength="50" />
+          <Property Name="voucherArabic" Type="nvarchar" MaxLength="50" />
+          <Property Name="voucher" Type="varchar" MaxLength="50" />
+          <Property Name="cash_party_acc" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="acc_id" Type="varchar" MaxLength="50" />
+          <Property Name="remarks" Type="varchar" MaxLength="50" />
+          <Property Name="depot_loc" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_acc" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+          <Property Name="dateArabic" Type="nvarchar" MaxLength="50" />
+          <Property Name="party_vno" Type="varchar" MaxLength="50" />
+          <Property Name="spl_disc" Type="varchar" MaxLength="50" />
+          <Property Name="gst" Type="varchar" MaxLength="50" />
+          <Property Name="addl_per" Type="varchar" MaxLength="50" />
+          <Property Name="invoice_type" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="date" />
+          <Property Name="updated_at" Type="date" />
+          <Property Name="tot_qty" Type="varchar" MaxLength="50" />
+          <Property Name="tot_gross" Type="varchar" MaxLength="50" />
+          <Property Name="tot_net" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_login">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="pswd" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="short_name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="contact_person" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_productDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_code" Type="varchar" MaxLength="50" />
+          <Property Name="product_name" Type="varchar" MaxLength="50" />
+          <Property Name="product_namearabic" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_group" Type="varchar" MaxLength="50" />
+          <Property Name="product_color" Type="varchar" MaxLength="50" />
+          <Property Name="base_unit" Type="int" />
+          <Property Name="rack_id" Type="int" />
+          <Property Name="tax_type" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="description" Type="text" />
+          <Property Name="hsn_code" Type="int" Nullable="false" />
+          <Property Name="minimum" Type="varchar" MaxLength="50" />
+          <Property Name="reorder" Type="varchar" MaxLength="50" />
+          <Property Name="maximum" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_rate" Type="int" />
+          <Property Name="sales_rate" Type="int" />
+          <Property Name="sales_percent" Type="int" />
+          <Property Name="mrp" Type="int" />
+          <Property Name="min_salesrate" Type="int" />
+          <Property Name="created_at" Type="datetime" />
+          <Property Name="updated_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_productGroupDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hsn_code" Type="varchar" MaxLength="50" />
+          <Property Name="group_name" Type="varchar" MaxLength="50" />
+          <Property Name="group_head" Type="varchar" MaxLength="50" />
+          <Property Name="stock_status" Type="int" />
+          <Property Name="created_at" Type="varchar" MaxLength="50" />
+          <Property Name="updated_at" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_name" Type="varchar" MaxLength="50" />
+          <Property Name="short_name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="text" />
+          <Property Name="contact_person" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_purchaseInvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoice_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="product_name" Type="varchar" MaxLength="50" />
+          <Property Name="quantity" Type="varchar" MaxLength="50" />
+          <Property Name="rate" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="varchar" MaxLength="50" />
+          <Property Name="spl_per" Type="varchar" MaxLength="50" />
+          <Property Name="spl_disc" Type="varchar" MaxLength="50" />
+          <Property Name="addl_disc" Type="varchar" MaxLength="50" />
+          <Property Name="total_tax" Type="varchar" MaxLength="50" />
+          <Property Name="net_amt" Type="varchar" MaxLength="50" />
+          <Property Name="gst_per" Type="varchar" MaxLength="50" />
+          <Property Name="discount" Type="varchar" MaxLength="50" />
+          <Property Name="gst" Type="varchar" MaxLength="50" />
+          <Property Name="mrp" Type="varchar" MaxLength="50" />
+          <Property Name="sticker_qty" Type="varchar" MaxLength="50" />
+          <Property Name="imeno" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_rackInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rack_name" Type="varchar" MaxLength="50" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="remaining" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_salesInvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoice_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="product_name" Type="varchar" MaxLength="50" />
+          <Property Name="quantity" Type="varchar" MaxLength="50" />
+          <Property Name="rate" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="varchar" MaxLength="50" />
+          <Property Name="spl_per" Type="varchar" MaxLength="50" />
+          <Property Name="spl_disc" Type="varchar" MaxLength="50" />
+          <Property Name="addl_disc" Type="varchar" MaxLength="50" />
+          <Property Name="total_tax" Type="varchar" MaxLength="50" />
+          <Property Name="net_amt" Type="varchar" MaxLength="50" />
+          <Property Name="gst" Type="varchar" MaxLength="50" />
+          <Property Name="mrp" Type="varchar" MaxLength="50" />
+          <Property Name="rtn" Type="varchar" MaxLength="50" />
+          <Property Name="tot_qty" Type="varchar" MaxLength="50" />
+          <Property Name="tot_gross" Type="varchar" MaxLength="50" />
+          <Property Name="tot_net" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="service_code" Type="int" />
+          <Property Name="service_name" Type="varchar" MaxLength="50" />
+          <Property Name="service_rate" Type="int" />
+          <Property Name="description" Type="text" />
+          <Property Name="labour_cost" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_taxInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tax_name" Type="varchar" MaxLength="50" />
+          <Property Name="taxprcnt" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vehicle_name" Type="varchar" MaxLength="50" />
+          <Property Name="vehicle_no" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="text" />
+          <Property Name="contact_person" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_wareHouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="depot_name" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="under_depo" Type="varchar" MaxLength="50" />
+          <Property Name="postal_code" Type="int" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="mob_no" Type="bigint" />
+          <Property Name="tel_no" Type="bigint" />
+          <Property Name="reg_no" Type="int" />
+          <Property Name="contact_person" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="text" />
+          <Property Name="licence_no" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="crm_iktisadModelStoreContainer">
+          <EntitySet Name="tbl_accountGroupDtls" EntityType="Self.tbl_accountGroupDtls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_accountLedgerDtls" EntityType="Self.tbl_accountLedgerDtls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_accountMoreDtls" EntityType="Self.tbl_accountMoreDtls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_budget" EntityType="Self.tbl_budget" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_companyDetails" EntityType="Self.tbl_companyDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_creditDebitCard" EntityType="Self.tbl_creditDebitCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_custominvoice" EntityType="Self.tbl_custominvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employeeDtls" EntityType="Self.tbl_employeeDtls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_login" EntityType="Self.tbl_login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_person" EntityType="Self.tbl_person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_productDtls" EntityType="Self.tbl_productDtls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_productGroupDetails" EntityType="Self.tbl_productGroupDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_project" EntityType="Self.tbl_project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_purchaseInvoice" EntityType="Self.tbl_purchaseInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_rackInfo" EntityType="Self.tbl_rackInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_salesInvoice" EntityType="Self.tbl_salesInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_service" EntityType="Self.tbl_service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_taxInfo" EntityType="Self.tbl_taxInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_vehicle" EntityType="Self.tbl_vehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_wareHouse" EntityType="Self.tbl_wareHouse" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="crm_iktisadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_accountGroupDtls">
+          <Key>
+            <PropertyRef Name="grp_id" />
+          </Key>
+          <Property Name="grp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="under" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_accountLedgerDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grp_id" Type="Int32" />
+          <Property Name="ledger_code" Type="Int32" />
+          <Property Name="ledger_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="under" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="discount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_budget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="budget_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="start_from" Type="DateTime" Precision="0" />
+          <Property Name="up_to" Type="DateTime" Precision="0" />
+          <Property Name="account" Type="Int64" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="allocate_tot" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_creditDebitCard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="card_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="short_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="short_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="service_code" Type="Int32" />
+          <Property Name="service_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="service_rate" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="labour_cost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_vehicle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vehicle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicle_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_wareHouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depot_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="under_depo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postal_code" Type="Int32" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="Int64" />
+          <Property Name="tel_no" Type="Int64" />
+          <Property Name="reg_no" Type="Int32" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="licence_no" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="crm_iktisadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_accountGroupDtls" EntityType="Self.tbl_accountGroupDtls" />
+          <EntitySet Name="tbl_accountLedgerDtls" EntityType="Self.tbl_accountLedgerDtls" />
+          <EntitySet Name="tbl_budget" EntityType="Self.tbl_budget" />
+          <EntitySet Name="tbl_creditDebitCard" EntityType="Self.tbl_creditDebitCard" />
+          <EntitySet Name="tbl_person" EntityType="Self.tbl_person" />
+          <EntitySet Name="tbl_project" EntityType="Self.tbl_project" />
+          <EntitySet Name="tbl_service" EntityType="Self.tbl_service" />
+          <EntitySet Name="tbl_vehicle" EntityType="Self.tbl_vehicle" />
+          <EntitySet Name="tbl_wareHouse" EntityType="Self.tbl_wareHouse" />
+          <EntitySet Name="tbl_login" EntityType="crm_iktisadModel.tbl_login" />
+          <EntitySet Name="tbl_employeeDtls" EntityType="crm_iktisadModel.tbl_employeeDtls" />
+          <EntitySet Name="tbl_productGroupDetails" EntityType="crm_iktisadModel.tbl_productGroupDetails" />
+          <EntitySet Name="tbl_companyDetails" EntityType="crm_iktisadModel.tbl_companyDetails" />
+          <EntitySet Name="tbl_rackInfo" EntityType="crm_iktisadModel.tbl_rackInfo" />
+          <EntitySet Name="tbl_invoice" EntityType="crm_iktisadModel.tbl_invoice" />
+          <EntitySet Name="tbl_salesInvoice" EntityType="crm_iktisadModel.tbl_salesInvoice" />
+          <EntitySet Name="tbl_purchaseInvoice" EntityType="crm_iktisadModel.tbl_purchaseInvoice" />
+          <EntitySet Name="tbl_taxInfo" EntityType="crm_iktisadModel.tbl_taxInfo" />
+          <EntitySet Name="tbl_productDtls" EntityType="crm_iktisadModel.tbl_productDtls" />
+          <EntitySet Name="tbl_custominvoice" EntityType="crm_iktisadModel.tbl_custominvoice" />
+          <EntitySet Name="tbl_accountMoreDtls" EntityType="crm_iktisadModel.tbl_accountMoreDtls" />
+        </EntityContainer>
+        <EntityType Name="tbl_login">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pswd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_employeeDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_id" Type="Int32" Nullable="false" />
+          <Property Name="emp_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postal_code" Type="Int32" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel_no" Type="Int64" />
+          <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="passport_no" Type="Int64" />
+          <Property Name="visa_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="psprt_expdate" Type="DateTime" Precision="3" />
+          <Property Name="visa_date" Type="DateTime" Precision="0" />
+          <Property Name="join_date" Type="DateTime" Precision="0" />
+          <Property Name="is_contract" Type="Int32" />
+          <Property Name="contract_end" Type="DateTime" Precision="0" />
+          <Property Name="is_employee" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_productGroupDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hsn_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="group_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="group_head" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stock_status" Type="Int32" />
+          <Property Name="created_at" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updated_at" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_companyDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comp_id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="comp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postal_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_site" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="acc_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vat_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vat_pswd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_rackInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rack_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="remaining" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_invoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="voucher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cash_party_acc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="acc_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="depot_loc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_acc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="party_vno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spl_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addl_per" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invoice_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="0" />
+          <Property Name="updated_at" Type="DateTime" Precision="0" />
+          <Property Name="tot_qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tot_gross" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tot_net" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="voucherArabic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateArabic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_salesInvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spl_per" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spl_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addl_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total_tax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="net_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mrp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rtn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tot_qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tot_gross" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tot_net" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_purchaseInvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spl_per" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spl_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addl_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total_tax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="net_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gst_per" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="discount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mrp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sticker_qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imeno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_taxInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tax_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="taxprcnt" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_productDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_namearabic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="base_unit" Type="Int32" />
+          <Property Name="rack_id" Type="Int32" />
+          <Property Name="tax_type" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="hsn_code" Type="Int32" Nullable="false" />
+          <Property Name="minimum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reorder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maximum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_rate" Type="Int32" />
+          <Property Name="sales_rate" Type="Int32" />
+          <Property Name="sales_percent" Type="Int32" />
+          <Property Name="mrp" Type="Int32" />
+          <Property Name="min_salesrate" Type="Int32" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_custominvoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="party_vno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invoice_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="party_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="party_namearabic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_accountMoreDtls">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grp_id" Type="Int32" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact_personArabic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="addr1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addr1Arabic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addr2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addr2Arabic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cityArabic" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="postal_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="acc_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mob_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vat_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tax_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gst_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ledger_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="crm_iktisadModelStoreContainer" CdmEntityContainer="crm_iktisadEntities">
+          <EntitySetMapping Name="tbl_accountGroupDtls">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountGroupDtls">
+              <MappingFragment StoreEntitySet="tbl_accountGroupDtls">
+                <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+                <ScalarProperty Name="grp_name" ColumnName="grp_name" />
+                <ScalarProperty Name="under" ColumnName="under" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_accountLedgerDtls">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountLedgerDtls">
+              <MappingFragment StoreEntitySet="tbl_accountLedgerDtls">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+                <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+                <ScalarProperty Name="ledger_name" ColumnName="ledger_name" />
+                <ScalarProperty Name="under" ColumnName="under" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_budget">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_budget">
+              <MappingFragment StoreEntitySet="tbl_budget">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="budget_name" ColumnName="budget_name" />
+                <ScalarProperty Name="start_from" ColumnName="start_from" />
+                <ScalarProperty Name="up_to" ColumnName="up_to" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="allocate_tot" ColumnName="allocate_tot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_creditDebitCard">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_creditDebitCard">
+              <MappingFragment StoreEntitySet="tbl_creditDebitCard">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="card_name" ColumnName="card_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_person">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_person">
+              <MappingFragment StoreEntitySet="tbl_person">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="short_name" ColumnName="short_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_project">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_project">
+              <MappingFragment StoreEntitySet="tbl_project">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="short_name" ColumnName="short_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_service">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_service">
+              <MappingFragment StoreEntitySet="tbl_service">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="service_code" ColumnName="service_code" />
+                <ScalarProperty Name="service_name" ColumnName="service_name" />
+                <ScalarProperty Name="service_rate" ColumnName="service_rate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="labour_cost" ColumnName="labour_cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_vehicle">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_vehicle">
+              <MappingFragment StoreEntitySet="tbl_vehicle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vehicle_name" ColumnName="vehicle_name" />
+                <ScalarProperty Name="vehicle_no" ColumnName="vehicle_no" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_wareHouse">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_wareHouse">
+              <MappingFragment StoreEntitySet="tbl_wareHouse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="depot_name" ColumnName="depot_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="under_depo" ColumnName="under_depo" />
+                <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+                <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+                <ScalarProperty Name="reg_no" ColumnName="reg_no" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="licence_no" ColumnName="licence_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_login">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_login">
+              <MappingFragment StoreEntitySet="tbl_login">
+                <ScalarProperty Name="pswd" ColumnName="pswd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employeeDtls">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_employeeDtls">
+              <MappingFragment StoreEntitySet="tbl_employeeDtls">
+                <ScalarProperty Name="is_employee" ColumnName="is_employee" />
+                <ScalarProperty Name="contract_end" ColumnName="contract_end" />
+                <ScalarProperty Name="is_contract" ColumnName="is_contract" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="visa_date" ColumnName="visa_date" />
+                <ScalarProperty Name="psprt_expdate" ColumnName="psprt_expdate" />
+                <ScalarProperty Name="visa_status" ColumnName="visa_status" />
+                <ScalarProperty Name="passport_no" ColumnName="passport_no" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="emp_addr" ColumnName="emp_addr" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_productGroupDetails">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_productGroupDetails">
+              <MappingFragment StoreEntitySet="tbl_productGroupDetails">
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="stock_status" ColumnName="stock_status" />
+                <ScalarProperty Name="group_head" ColumnName="group_head" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="hsn_code" ColumnName="hsn_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_companyDetails">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_companyDetails">
+              <MappingFragment StoreEntitySet="tbl_companyDetails">
+                <ScalarProperty Name="vat_pswd" ColumnName="vat_pswd" />
+                <ScalarProperty Name="vat_no" ColumnName="vat_no" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+                <ScalarProperty Name="comp_site" ColumnName="comp_site" />
+                <ScalarProperty Name="comp_fax" ColumnName="comp_fax" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+                <ScalarProperty Name="comp_email" ColumnName="comp_email" />
+                <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+                <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="comp_addr" ColumnName="comp_addr" />
+                <ScalarProperty Name="comp_url" ColumnName="comp_url" />
+                <ScalarProperty Name="comp_name" ColumnName="comp_name" />
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_rackInfo">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_rackInfo">
+              <MappingFragment StoreEntitySet="tbl_rackInfo">
+                <ScalarProperty Name="remaining" ColumnName="remaining" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="rack_name" ColumnName="rack_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_invoice">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_invoice">
+              <MappingFragment StoreEntitySet="tbl_invoice">
+                <ScalarProperty Name="dateArabic" ColumnName="dateArabic" />
+                <ScalarProperty Name="voucherArabic" ColumnName="voucherArabic" />
+                <ScalarProperty Name="tot_net" ColumnName="tot_net" />
+                <ScalarProperty Name="tot_gross" ColumnName="tot_gross" />
+                <ScalarProperty Name="tot_qty" ColumnName="tot_qty" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="invoice_type" ColumnName="invoice_type" />
+                <ScalarProperty Name="addl_per" ColumnName="addl_per" />
+                <ScalarProperty Name="gst" ColumnName="gst" />
+                <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+                <ScalarProperty Name="party_vno" ColumnName="party_vno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="purchase_acc" ColumnName="purchase_acc" />
+                <ScalarProperty Name="depot_loc" ColumnName="depot_loc" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="acc_id" ColumnName="acc_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cash_party_acc" ColumnName="cash_party_acc" />
+                <ScalarProperty Name="voucher" ColumnName="voucher" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_salesInvoice">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_salesInvoice">
+              <MappingFragment StoreEntitySet="tbl_salesInvoice">
+                <ScalarProperty Name="tot_net" ColumnName="tot_net" />
+                <ScalarProperty Name="tot_gross" ColumnName="tot_gross" />
+                <ScalarProperty Name="tot_qty" ColumnName="tot_qty" />
+                <ScalarProperty Name="rtn" ColumnName="rtn" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="gst" ColumnName="gst" />
+                <ScalarProperty Name="net_amt" ColumnName="net_amt" />
+                <ScalarProperty Name="total_tax" ColumnName="total_tax" />
+                <ScalarProperty Name="addl_disc" ColumnName="addl_disc" />
+                <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+                <ScalarProperty Name="spl_per" ColumnName="spl_per" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_purchaseInvoice">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_purchaseInvoice">
+              <MappingFragment StoreEntitySet="tbl_purchaseInvoice">
+                <ScalarProperty Name="imeno" ColumnName="imeno" />
+                <ScalarProperty Name="sticker_qty" ColumnName="sticker_qty" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="gst" ColumnName="gst" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="gst_per" ColumnName="gst_per" />
+                <ScalarProperty Name="net_amt" ColumnName="net_amt" />
+                <ScalarProperty Name="total_tax" ColumnName="total_tax" />
+                <ScalarProperty Name="addl_disc" ColumnName="addl_disc" />
+                <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+                <ScalarProperty Name="spl_per" ColumnName="spl_per" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_taxInfo">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_taxInfo">
+              <MappingFragment StoreEntitySet="tbl_taxInfo">
+                <ScalarProperty Name="taxprcnt" ColumnName="taxprcnt" />
+                <ScalarProperty Name="tax_name" ColumnName="tax_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_productDtls">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_productDtls">
+              <MappingFragment StoreEntitySet="tbl_productDtls">
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="min_salesrate" ColumnName="min_salesrate" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="sales_percent" ColumnName="sales_percent" />
+                <ScalarProperty Name="sales_rate" ColumnName="sales_rate" />
+                <ScalarProperty Name="purchase_rate" ColumnName="purchase_rate" />
+                <ScalarProperty Name="maximum" ColumnName="maximum" />
+                <ScalarProperty Name="reorder" ColumnName="reorder" />
+                <ScalarProperty Name="minimum" ColumnName="minimum" />
+                <ScalarProperty Name="hsn_code" ColumnName="hsn_code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="tax_type" ColumnName="tax_type" />
+                <ScalarProperty Name="rack_id" ColumnName="rack_id" />
+                <ScalarProperty Name="base_unit" ColumnName="base_unit" />
+                <ScalarProperty Name="product_color" ColumnName="product_color" />
+                <ScalarProperty Name="product_group" ColumnName="product_group" />
+                <ScalarProperty Name="product_namearabic" ColumnName="product_namearabic" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_custominvoice">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_custominvoice">
+              <MappingFragment StoreEntitySet="tbl_custominvoice">
+                <ScalarProperty Name="party_namearabic" ColumnName="party_namearabic" />
+                <ScalarProperty Name="party_name" ColumnName="party_name" />
+                <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+                <ScalarProperty Name="party_vno" ColumnName="party_vno" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_accountMoreDtls">
+            <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountMoreDtls">
+              <MappingFragment StoreEntitySet="tbl_accountMoreDtls">
+                <ScalarProperty Name="ledger_id" ColumnName="ledger_id" />
+                <ScalarProperty Name="state_code" ColumnName="state_code" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="gst_no" ColumnName="gst_no" />
+                <ScalarProperty Name="tax_no" ColumnName="tax_no" />
+                <ScalarProperty Name="vat_no" ColumnName="vat_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+                <ScalarProperty Name="acc_id" ColumnName="acc_id" />
+                <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+                <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+                <ScalarProperty Name="cityArabic" ColumnName="cityArabic" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="addr2Arabic" ColumnName="addr2Arabic" />
+                <ScalarProperty Name="addr2" ColumnName="addr2" />
+                <ScalarProperty Name="addr1Arabic" ColumnName="addr1Arabic" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="contact_personArabic" ColumnName="contact_personArabic" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

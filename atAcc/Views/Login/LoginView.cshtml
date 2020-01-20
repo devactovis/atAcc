@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "LoginView";
+}
+
+
+<!-- ============================================================== -->
+@section MainContent {
+    @*<div class="container login">
+        <div class="row login__container">
+            <div class="col-md-4" style="align-content:center;">
+                <div class="login__box">*@
+
+    <section id="wrapper">
+        <div class="login-register">
+            <div class="login-box">
+                <form id="frm1" class="form-horizontal" role="form" method="POST" action="/dash/index">
+                    @*{{ csrf_field() }}*@
+                    <div class="logo"> <img height="50" src="~/assets/images/logo.png" /></div>
+                    <h3 class="box-title m-b-20 text-center">LOGIN</h3>
+                    @*@using (Html.BeginForm("CompanyView", "Company", FormMethod.Post ))
+                        {
+                        @Html.AntiForgeryToken()*@
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="txtName" name="email" required="" placeholder="Username">
+
+                            @Html.ValidationMessage("email")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" id="txtPwd" name="password" required="" placeholder="Password">
+
+                            @Html.ValidationMessage("password")
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit" id="btnGet">Log In</button>
+                        </div>
+                    </div>
+
+
+                    @*}*@
+                </form>
+                <form class="form-horizontal" id="recoverform" action="index.html">
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <h3>Recover Password</h3>
+                            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" name="email" required="" placeholder="Email">
+                            @Html.ValidationMessage("email")
+                        </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button type="submit" id="btnGet" class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light">Reset</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    @*</div>
+                </div>
+            </div>
+        </div>*@
+
+    <!-- /#wrapper -->
+}
+
+
+
+

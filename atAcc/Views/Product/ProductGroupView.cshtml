@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "ProductGroupView";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Product Group</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-md-3">
+                            <form method="post" action="/Product/SaveProductGroup">
+                                <div class="form-group ">
+                                </div>
+                                <div class="form-group ">
+                                    <label>*Group Name </label>
+                                    <input type="text" class="form-control" id="groupname" name="group_name">
+                                </div>
+                                <div class="form-group ">
+                                    <label>*Group Head </label>
+                                    <input type="text" class="form-control" id="grouphead" name="group_head">
+                                </div>
+                                <div class="m-b-10">
+                                    <label class="custom-control custom-radio">
+                                        <input id="radio1" name="is_nonstock" type="radio" class="custom-control-input" onclick="$(this).val(this.checked ? 'true' : 'false')">
+                                        <span class="custom-control-label">Non Stock Item</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-primary cls">Clear</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    @*@include('layouts.footer')*@
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<script>
+
+    $(document).ready(function () { // execute when everything is loaded
+        $(".cls").click(function () {
+           $('input[name="stock"]').prop('checked', false);
+           $('#hsncode').val('');
+           $('#groupname').val('');
+           $('#grouphead').val('');
+        });
+
+});
+</script>
+
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->

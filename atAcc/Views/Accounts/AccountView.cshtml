@@ -1,0 +1,332 @@
+﻿@model atAcc.Models.ViewModels.ParentModel	
+@{	
+    ViewBag.Title = "AccountView";	
+}	
+<!-- Page wrapper  -->	
+<!-- ============================================================== -->	
+<div class="page-wrapper">	
+    <!-- ============================================================== -->	
+    <!-- Bread crumb and right sidebar toggle -->	
+    <!-- ============================================================== -->	
+    <!-- ============================================================== -->	
+    <!-- End Bread crumb and right sidebar toggle -->	
+    <!-- ============================================================== -->	
+    <!-- ============================================================== -->	
+    <!-- Container fluid  -->	
+    <!-- ============================================================== -->	
+    <div class="container-fluid">	
+        <!-- ============================================================== -->	
+        <!-- Start Page Content -->	
+        <!-- ============================================================== -->	
+        <div class="row">	
+            <div class="col-md-12">	
+                <div class="card card-outline-info">	
+                    <div class="card-header">	
+                        <h4 class="m-b-0 text-white">Accounts</h4>	
+                    </div>	
+                    <div class="col-md-6">	
+                        <div class="card-body p-b-0">	
+                            <!-- Nav tabs -->	
+                            <ul class="nav nav-tabs customtab2" role="tablist">	
+                                <li class="nav-item">	
+                                    <a class="nav-link active" data-toggle="tab" href="#account" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Account Group</span></a>	
+                                </li>	
+                                <li class="nav-item">	
+                                    <a class="nav-link" data-toggle="tab" href="#accountledger" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Account Ledger</span></a>	
+                                </li>	
+                            </ul>	
+                            <!-- Tab panes -->	
+                            <div class="tab-content">	
+                                <div class="tab-pane active" id="account" role="tabpanel">	
+                                    <div class="p-20">	
+                                        <form role="form" method="post" action="#">	
+                                            <div class="form-group m-t-0">	
+                                                <label>*Group Name</label>	
+                                                <input type="text" name="groupname" class="form-control" id="groupname" required>	
+                                            </div>	
+                                            <div class="form-group m-t-20">	
+                                                <label>*Under</label>	
+                                                <select class="select2 form-control custom-select" id="under" name="under" style="width: 100%;" required>	
+                                                    <option value="1">Select</option>	
+                                                    <option value="1">Select</option>	
+                                                    <option value="1">Select</option>	
+                                                    <option value="1">Select</option>	
+                                                    <option value="1">Select</option>	
+                                                </select>	
+                                            </div>	
+                                            <button class="btn btn-primary" type="button" onclick="saveAccountGroup()">Save</button>	
+                                            <button class="btn btn-primary" type="submit">Clear</button>	
+                                        </form>	
+                                    </div>	
+                                </div>	
+                                <div class="tab-pane  p-20" id="accountledger" role="tabpanel">	
+                                    <ul class="nav nav-tabs customtab2 tabs" role="tablist">	
+                                        <li class="nav-item">	
+                                            <a class="nav-link active" data-toggle="tab" href="#ledgerdetails" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Ledger Details</span></a>	
+                                        </li>	
+                                        <li class="nav-item">	
+                                            <a class="nav-link" data-toggle="tab" href="#moredetails" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">More Details</span></a>	
+                                        </li>	
+                                    </ul>	
+                                    <div class="tab-content">	
+                                        <div class="tab-pane active" id="ledgerdetails" role="tabpanel">	
+                                            <div class="p-20">	
+                                                <form role="form" method="post" action="#" id="ledgerDtls">	
+                                                    <div class="form-group m-t-0">	
+                                                        <label>*Ledger Code</label>	
+                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_code, null, new { @class = "form-control", type = "number" })	
+                                                    </div>	
+                                                    <div class="form-group m-t-20">	
+                                                        <label>*Ledger Name</label>	
+                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_name, null, new { @class = "form-control" })	
+                                                    </div>	
+                                                    <div class="form-group m-t-20">	
+                                                        <label>Group Name</label>	
+                                                        @if (ViewBag.data != null)	
+                                                        {	
+                                                            @Html.DropDownList("AccountLedgerDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })	
+                                                        }	
+                                                        else	
+                                                        {	
+                                                            <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>	
+                                                                <option value="" disabled>Add Product Group First</option>	
+                                                            </select>	
+                                                        }	
+                                                    </div>	
+                                                    <div class="form-group m-t-20">	
+                                                        <label>*Under</label>	
+                                                        <select class="select2 form-control custom-select" name="AccountLedgerDtls.under" style="width: 100%; height:36px;" id="under" required>	
+                                                            <option value="1">Select</option>	
+                                                            <option value="1">Select</option>	
+                                                            <option value="1">Select</option>	
+                                                            <option value="1">Select</option>	
+                                                            <option value="1">Select</option>	
+                                                        </select>	
+                                                    </div>	
+                                                    <div class="form-group m-t-20">	
+                                                        <label>Discount[%]</label>	
+                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.discount, null, new { @class = "form-control" })	
+                                                    </div>	
+                                                    <button class="btn btn-primary" type="button" onclick="SaveLedger()">Save</button>	
+                                                    <button class="btn btn-primary" type="submit">Clear</button>	
+                                                </form>	
+                                            </div>	
+                                        </div>	
+                                        <div class="tab-pane" id="moredetails" role="tabpanel">	
+                                            <div class="p-t-5 px-4">	
+                                                <form role="form" method="post" action="#" id="ledgerMoreDetails">	
+                                                    <div class="row">	
+                                                        <div class="col-md-4">	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Contact Person</label>	
+                                                                @Html.HiddenFor(model => model.AccountMoreDtls.ledger_id);	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_person, null, new { @class = "form-control" ,id= "contact_person" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Contact Person In Arabic</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_personArabic, null, new { @class = "form-control", id="contact_personArabic" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Address 1</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1, null, new { @class = "form-control" ,id="addr1" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Address 1 in Arabic</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1Arabic, null, new { @class = "form-control",id= "addr1Arabic" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Address 2</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2, null, new { @class = "form-control",id= "addr2" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Address 2 in Arabic</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2Arabic, null, new { @class = "form-control", id= "addr2Arabic" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>City</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.city, null, new { @class = "form-control", id= "city" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>City</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.cityArabic, null, new { @class = "form-control", id = "cityArabic" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Postal Code</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.postal_code, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                        </div>	
+                                                        <div class="col-md-4">	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Telephone</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tel_no, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Acc ID</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.acc_id, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Mobile</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.mob_no, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Email</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.email, null, new { @class = "form-control" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Vat No.[TIN]</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.vat_no, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                        </div>	
+                                                        <div class="col-md-4">	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Tax 1 Number</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tax_no, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>Group Name</label>	
+                                                                @if (ViewBag.data != null)	
+                                                                {	
+                                                                    @Html.DropDownList("AccountMoreDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })	
+                                                                }	
+                                                                else	
+                                                                {	
+                                                                    <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>	
+                                                                        <option value="" disabled>Add Product Group First</option>	
+                                                                    </select>	
+                                                                }	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>GST Number</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.gst_no, null, new { @class = "form-control", type = "number" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>State</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state, null, new { @class = "form-control" })	
+                                                            </div>	
+                                                            <div class="form-group m-t-20">	
+                                                                <label>State Code</label>	
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state_code, null, new { @class = "form-control" })	
+                                                            </div>	
+                                                        </div>	
+                                                        <div style="text-align:right">	
+                                                            <button class="btn btn-primary" type="button" onclick="saveMoreDtls()">Save</button>	
+                                                            <button class="btn btn-primary" type="submit">Clear</button>	
+                                                        </div>	
+                                                    </div>	
+                                                </form>	
+                                            </div>	
+                                        </div>	
+                                    </div>	
+                                </div>	
+                            </div>	
+                        </div>	
+                    </div>	
+                </div>	
+            </div>	
+        </div>	
+        <!-- row -->	
+        <!-- row -->	
+        <!-- ============================================================== -->	
+        <!-- End PAge Content -->	
+        <!-- ============================================================== -->	
+        <!-- ============================================================== -->	
+    </div>	
+    <!-- ============================================================== -->	
+    <!-- End Container fluid  -->	
+    <!-- ============================================================== -->	
+    <!-- ============================================================== -->	
+    <!-- footer -->	
+    <!-- ============================================================== -->	
+    @*@include('layouts.footer')*@	
+    <!-- ============================================================== -->	
+    <!-- End footer -->	
+    <!-- ============================================================== -->	
+</div>	
+<!-- ============================================================== -->	
+<!-- End Page wrapper  -->	
+<!-- ============================================================== -->	
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>	
+<script type="text/javascript">	
+google.load("elements", "1", {packages: "transliteration"});	
+</script> 	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>	
+<script>	
+        function OnLoad() {	
+            	
+    var options = {	
+        sourceLanguage:	
+        google.elements.transliteration.LanguageCode.ENGLISH,	
+        destinationLanguage:	
+        [google.elements.transliteration.LanguageCode.ARABIC],	
+        shortcutKey: 'ctrl+g',	
+        transliterationEnabled: true	
+    };	
+    	
+    var keyVal = 32; // Space key	
+    $("#contact_person").on('keydown', function (event) {	
+        if (event.keyCode === 32) {	
+            var control = new google.elements.transliteration.TransliterationControl(options);	
+            control.makeTransliteratable(["contact_personArabic"]);	
+            var engText = $("#contact_person").val() + " ";	
+            var engTextArray = engText.split(" ");	
+            $("#contact_personArabic").val($("#contact_personArabic").val() + engTextArray[engTextArray.length - 2]);	
+            document.getElementById("contact_personArabic").focus();	
+            $("#contact_personArabic").trigger({	
+                type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal	
+            } );	
+        }	
+    });	
+    $("#contact_personArabic").bind("keyup", function (event) {	
+        setTimeout(function () { $("#contact_person").val($("#contact_person").val() + " "); document.getElementById("contact_person").focus() }, 0);	
+    });	
+    $("#addr1").on('keydown', function (event) {	
+        if (event.keyCode === 32) {	
+            var control = new google.elements.transliteration.TransliterationControl(options);	
+            control.makeTransliteratable(["addr1Arabic"]);	
+            var engText = $("#addr1").val() + " ";	
+            var engTextArray = engText.split(" ");	
+            $("#addr1Arabic").val($("#addr1Arabic").val() + engTextArray[engTextArray.length - 2]);	
+            document.getElementById("addr1Arabic").focus();	
+            $("#addr1Arabic").trigger({	
+                type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal	
+            });	
+        }	
+    });	
+    $("#addr1Arabic").bind("keyup", function (event) {	
+        setTimeout(function () { $("#addr1").val($("#addr1").val() + " "); document.getElementById("addr1").focus() }, 0);	
+    });	
+    $("#addr2").on('keydown', function (event) {	
+        if (event.keyCode === 32) {	
+            var control = new google.elements.transliteration.TransliterationControl(options);	
+            control.makeTransliteratable(["addr2Arabic"]);	
+            var engText = $("#addr2").val() + " ";	
+            var engTextArray = engText.split(" ");	
+            $("#addr2Arabic").val($("#addr2Arabic").val() + engTextArray[engTextArray.length - 2]);	
+            document.getElementById("addr2Arabic").focus();	
+            $("#addr2Arabic").trigger({	
+                type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal	
+            });	
+        }	
+    });	
+    $("#addr2Arabic").bind("keyup", function (event) {	
+        setTimeout(function () { $("#addr2").val($("#addr2").val() + " "); document.getElementById("addr2").focus() }, 0);	
+    });	
+    $("#city").on('keydown', function (event) {	
+        if (event.keyCode === 32) {	
+            var control = new google.elements.transliteration.TransliterationControl(options);	
+            control.makeTransliteratable(["cityArabic"]);	
+            var engText = $("#city").val() + " ";	
+            var engTextArray = engText.split(" ");	
+            $("#cityArabic").val($("#cityArabic").val() + engTextArray[engTextArray.length - 2]);	
+            document.getElementById("cityArabic").focus();	
+            $("#cityArabic").trigger({	
+                type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal	
+            });	
+        }	
+    });	
+    $("#cityArabic").bind("keyup", function (event) {	
+        setTimeout(function () { $("#city").val($("#city").val() + " "); document.getElementById("city").focus() }, 0);	
+    });	
+} //end onLoad function	
+google.setOnLoadCallback(OnLoad);	
+</script> 

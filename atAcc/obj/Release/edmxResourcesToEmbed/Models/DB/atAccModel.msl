@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="crm_iktisadModelStoreContainer" CdmEntityContainer="crm_iktisadEntities">
+    <EntitySetMapping Name="tbl_accountGroupDtls">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountGroupDtls">
+        <MappingFragment StoreEntitySet="tbl_accountGroupDtls">
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="grp_name" ColumnName="grp_name" />
+          <ScalarProperty Name="under" ColumnName="under" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_accountLedgerDtls">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountLedgerDtls">
+        <MappingFragment StoreEntitySet="tbl_accountLedgerDtls">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="ledger_name" ColumnName="ledger_name" />
+          <ScalarProperty Name="under" ColumnName="under" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_budget">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_budget">
+        <MappingFragment StoreEntitySet="tbl_budget">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="budget_name" ColumnName="budget_name" />
+          <ScalarProperty Name="start_from" ColumnName="start_from" />
+          <ScalarProperty Name="up_to" ColumnName="up_to" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="allocate_tot" ColumnName="allocate_tot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_creditDebitCard">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_creditDebitCard">
+        <MappingFragment StoreEntitySet="tbl_creditDebitCard">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="card_name" ColumnName="card_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_person">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_person">
+        <MappingFragment StoreEntitySet="tbl_person">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="short_name" ColumnName="short_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_project">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_project">
+        <MappingFragment StoreEntitySet="tbl_project">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="project_name" ColumnName="project_name" />
+          <ScalarProperty Name="short_name" ColumnName="short_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_service">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_service">
+        <MappingFragment StoreEntitySet="tbl_service">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="service_code" ColumnName="service_code" />
+          <ScalarProperty Name="service_name" ColumnName="service_name" />
+          <ScalarProperty Name="service_rate" ColumnName="service_rate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="labour_cost" ColumnName="labour_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_vehicle">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_vehicle">
+        <MappingFragment StoreEntitySet="tbl_vehicle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vehicle_name" ColumnName="vehicle_name" />
+          <ScalarProperty Name="vehicle_no" ColumnName="vehicle_no" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_wareHouse">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_wareHouse">
+        <MappingFragment StoreEntitySet="tbl_wareHouse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="depot_name" ColumnName="depot_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="under_depo" ColumnName="under_depo" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+          <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+          <ScalarProperty Name="reg_no" ColumnName="reg_no" />
+          <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="licence_no" ColumnName="licence_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_login">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_login">
+        <MappingFragment StoreEntitySet="tbl_login">
+          <ScalarProperty Name="pswd" ColumnName="pswd" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_employeeDtls">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_employeeDtls">
+        <MappingFragment StoreEntitySet="tbl_employeeDtls">
+          <ScalarProperty Name="is_employee" ColumnName="is_employee" />
+          <ScalarProperty Name="contract_end" ColumnName="contract_end" />
+          <ScalarProperty Name="is_contract" ColumnName="is_contract" />
+          <ScalarProperty Name="join_date" ColumnName="join_date" />
+          <ScalarProperty Name="visa_date" ColumnName="visa_date" />
+          <ScalarProperty Name="psprt_expdate" ColumnName="psprt_expdate" />
+          <ScalarProperty Name="visa_status" ColumnName="visa_status" />
+          <ScalarProperty Name="passport_no" ColumnName="passport_no" />
+          <ScalarProperty Name="email_id" ColumnName="email_id" />
+          <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="emp_addr" ColumnName="emp_addr" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_productGroupDetails">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_productGroupDetails">
+        <MappingFragment StoreEntitySet="tbl_productGroupDetails">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="stock_status" ColumnName="stock_status" />
+          <ScalarProperty Name="group_head" ColumnName="group_head" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="hsn_code" ColumnName="hsn_code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_companyDetails">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_companyDetails">
+        <MappingFragment StoreEntitySet="tbl_companyDetails">
+          <ScalarProperty Name="vat_pswd" ColumnName="vat_pswd" />
+          <ScalarProperty Name="vat_no" ColumnName="vat_no" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+          <ScalarProperty Name="comp_site" ColumnName="comp_site" />
+          <ScalarProperty Name="comp_fax" ColumnName="comp_fax" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+          <ScalarProperty Name="comp_email" ColumnName="comp_email" />
+          <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="comp_addr" ColumnName="comp_addr" />
+          <ScalarProperty Name="comp_url" ColumnName="comp_url" />
+          <ScalarProperty Name="comp_name" ColumnName="comp_name" />
+          <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_rackInfo">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_rackInfo">
+        <MappingFragment StoreEntitySet="tbl_rackInfo">
+          <ScalarProperty Name="remaining" ColumnName="remaining" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="rack_name" ColumnName="rack_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_invoice">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_invoice">
+        <MappingFragment StoreEntitySet="tbl_invoice">
+          <ScalarProperty Name="dateArabic" ColumnName="dateArabic" />
+          <ScalarProperty Name="voucherArabic" ColumnName="voucherArabic" />
+          <ScalarProperty Name="tot_net" ColumnName="tot_net" />
+          <ScalarProperty Name="tot_gross" ColumnName="tot_gross" />
+          <ScalarProperty Name="tot_qty" ColumnName="tot_qty" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="invoice_type" ColumnName="invoice_type" />
+          <ScalarProperty Name="addl_per" ColumnName="addl_per" />
+          <ScalarProperty Name="gst" ColumnName="gst" />
+          <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+          <ScalarProperty Name="party_vno" ColumnName="party_vno" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="purchase_acc" ColumnName="purchase_acc" />
+          <ScalarProperty Name="depot_loc" ColumnName="depot_loc" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="acc_id" ColumnName="acc_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cash_party_acc" ColumnName="cash_party_acc" />
+          <ScalarProperty Name="voucher" ColumnName="voucher" />
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_salesInvoice">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_salesInvoice">
+        <MappingFragment StoreEntitySet="tbl_salesInvoice">
+          <ScalarProperty Name="tot_net" ColumnName="tot_net" />
+          <ScalarProperty Name="tot_gross" ColumnName="tot_gross" />
+          <ScalarProperty Name="tot_qty" ColumnName="tot_qty" />
+          <ScalarProperty Name="rtn" ColumnName="rtn" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="gst" ColumnName="gst" />
+          <ScalarProperty Name="net_amt" ColumnName="net_amt" />
+          <ScalarProperty Name="total_tax" ColumnName="total_tax" />
+          <ScalarProperty Name="addl_disc" ColumnName="addl_disc" />
+          <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+          <ScalarProperty Name="spl_per" ColumnName="spl_per" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_purchaseInvoice">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_purchaseInvoice">
+        <MappingFragment StoreEntitySet="tbl_purchaseInvoice">
+          <ScalarProperty Name="imeno" ColumnName="imeno" />
+          <ScalarProperty Name="sticker_qty" ColumnName="sticker_qty" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="gst" ColumnName="gst" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="gst_per" ColumnName="gst_per" />
+          <ScalarProperty Name="net_amt" ColumnName="net_amt" />
+          <ScalarProperty Name="total_tax" ColumnName="total_tax" />
+          <ScalarProperty Name="addl_disc" ColumnName="addl_disc" />
+          <ScalarProperty Name="spl_disc" ColumnName="spl_disc" />
+          <ScalarProperty Name="spl_per" ColumnName="spl_per" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_taxInfo">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_taxInfo">
+        <MappingFragment StoreEntitySet="tbl_taxInfo">
+          <ScalarProperty Name="taxprcnt" ColumnName="taxprcnt" />
+          <ScalarProperty Name="tax_name" ColumnName="tax_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_productDtls">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_productDtls">
+        <MappingFragment StoreEntitySet="tbl_productDtls">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="min_salesrate" ColumnName="min_salesrate" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="sales_percent" ColumnName="sales_percent" />
+          <ScalarProperty Name="sales_rate" ColumnName="sales_rate" />
+          <ScalarProperty Name="purchase_rate" ColumnName="purchase_rate" />
+          <ScalarProperty Name="maximum" ColumnName="maximum" />
+          <ScalarProperty Name="reorder" ColumnName="reorder" />
+          <ScalarProperty Name="minimum" ColumnName="minimum" />
+          <ScalarProperty Name="hsn_code" ColumnName="hsn_code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="tax_type" ColumnName="tax_type" />
+          <ScalarProperty Name="rack_id" ColumnName="rack_id" />
+          <ScalarProperty Name="base_unit" ColumnName="base_unit" />
+          <ScalarProperty Name="product_color" ColumnName="product_color" />
+          <ScalarProperty Name="product_group" ColumnName="product_group" />
+          <ScalarProperty Name="product_namearabic" ColumnName="product_namearabic" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_code" ColumnName="product_code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_custominvoice">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_custominvoice">
+        <MappingFragment StoreEntitySet="tbl_custominvoice">
+          <ScalarProperty Name="party_namearabic" ColumnName="party_namearabic" />
+          <ScalarProperty Name="party_name" ColumnName="party_name" />
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="party_vno" ColumnName="party_vno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_accountMoreDtls">
+      <EntityTypeMapping TypeName="crm_iktisadModel.tbl_accountMoreDtls">
+        <MappingFragment StoreEntitySet="tbl_accountMoreDtls">
+          <ScalarProperty Name="ledger_id" ColumnName="ledger_id" />
+          <ScalarProperty Name="state_code" ColumnName="state_code" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="gst_no" ColumnName="gst_no" />
+          <ScalarProperty Name="tax_no" ColumnName="tax_no" />
+          <ScalarProperty Name="vat_no" ColumnName="vat_no" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mob_no" ColumnName="mob_no" />
+          <ScalarProperty Name="acc_id" ColumnName="acc_id" />
+          <ScalarProperty Name="tel_no" ColumnName="tel_no" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="cityArabic" ColumnName="cityArabic" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="addr2Arabic" ColumnName="addr2Arabic" />
+          <ScalarProperty Name="addr2" ColumnName="addr2" />
+          <ScalarProperty Name="addr1Arabic" ColumnName="addr1Arabic" />
+          <ScalarProperty Name="addr1" ColumnName="addr1" />
+          <ScalarProperty Name="contact_personArabic" ColumnName="contact_personArabic" />
+          <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+          <ScalarProperty Name="grp_id" ColumnName="grp_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,34 @@
+﻿@model atAcc.Models.ViewModels.PurchaseInvoice
+
+@{
+    ViewBag.Title = "Invoice Details";
+}
+
+<table style="width:100%; border:none !important;"  border="0">
+
+    <tr>
+        <td colspan="7"><label>Invoice Details :</label></td>
+    </tr>
+
+    @foreach (var item in ViewBag.data)
+    {   
+        <tr>
+            <td><label>Product Code :</label>@item.code</td>
+            <td><label>Product Name :</label>@item.product_name</td>
+            <td><label>Product Quantity :</label>@item.quantity</td>
+            <td><label>Special Discount :</label>@item.spl_disc</td>
+            <td><label>Additional Discount :</label>@item.addl_disc</td>
+            <td><label>Total Tax :</label>@item.total_tax</td>
+            <td><label>Total Amount :</label>@item.net_amt</td>
+         </tr>
+         <tr>
+            <td><label>Gst Percentage :</label>@item.gst_per</td>
+            <td><label>Product Discount :</label>@item.discount</td>
+            <td><label>Gst Number :</label>@item.gst</td>
+            <td><label>Product Mrp Rate :</label>@item.mrp</td>
+            <td><label>Product Hsn Code :</label>@item.imeno</td>
+            <td><label>Special Percentage :</label>@item.spl_per</td>
+            <td><label>Gst Percentage :</label>@item.gst_per</td>
+        </tr>
+    }
+</table> 

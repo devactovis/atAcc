@@ -1,0 +1,296 @@
+﻿
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Al - Iktisad - Invoice</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="http://crm.actovis.biz/assets/images/favicon.png">
+
+    <link href="http://crm.actovis.biz/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://crm.actovis.biz/assets/plugins/wizard/steps.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="http://crm.actovis.biz/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="http://crm.actovis.biz/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="http://crm.actovis.biz/css/colors/blue.css" id="theme" rel="stylesheet">
+    <style type="text/css">
+       @Page { size:10in 12in; margin: 0.5cm }
+       
+		@@media print {
+            #printPageButton {
+                display: none;
+            }
+                }       
+    </style>
+</head>
+
+
+
+    <body class="container-fluid" style="font-size: 15px !important;">
+
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>
+
+        <div id="main-wrapper">
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <table id="" class="table  table-bordered table-striped m-b-0">
+                <thead>
+                    <tr>
+                        <th colspan="6" class="text-center" align="center">
+                            <strong>فاتورة ضريبية<br>TAX INVOICE</strong>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th width="40%">Customer Name: <input class="translate"><br> <div class="pull-right"> <input class="nametranslate"> : اسم الزبون   </div> </th>
+                        <th colspan="3" align="right">Invoice No: <input> <br> <div class="pull-right"> <input class=""> :رقم الفاتورة</div> </th>
+                        <th width="20%">
+                            Date:
+                            <?php echo  date("d/m/Y"); ?> <br><div class="pull-right"> <?php echo  date("d/m/Y"); ?>  : تاريخ</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="5">
+                            DN. No: <input> تاريخ: Supply Date: <input> تاريخ العرض: PO No: <input> تاريخ العرض:
+                        </th>
+                        
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+            <!-- Editable table -->
+            <div class="">
+                <div class="">
+                    <div id="table" class="table-editable">
+
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th width="100">رقم <br> Sl No</th>
+                                    <th width="100">رقم القطعة <br>Part No</th>
+                                    <th width="450">وصف <br>Description</th>
+                                    <th width="20">كمية <br> Quantity</th>
+                                    <th width="45">وحدة <br> Unit</th>
+                                    <th width="100">سعر الوحده <br> Unit Price</th>
+                                    <th width="100">كمية <br> Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="pt-3-half" contenteditable="true">1</td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"><label class="pull-right" id="description1"></label></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                </tr>
+                                <!-- This is our clonable table line -->
+                                <tr>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                </tr>
+                                <!-- This is our clonable table line -->
+                                <tr>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                </tr>
+                                <!-- This is our clonable table line -->
+                                <tr>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                    <td class="pt-3-half" contenteditable="true"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="4" align="right"><strong>Total:</strong> </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Editable table -->
+            <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0">
+
+
+                <tr>
+                    <table id="" class="table table-bordered table-striped m-b-0">
+                        <tbody>
+                            <tr>
+                                <td width="40%"></td>
+                                <td>
+                                    <table id="mainTable2" class="table editable-table table-bordered table-striped m-b-0">
+                                        <tbody>
+                                            <tr>
+                                                <td>Total Amount Before VAT المبلغ الإجمالي قبل ضريبة القيمة المضافة</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Discount خصم</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total VAT 5% إجمالي ضريبة القيمة المضافة 5 ٪</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Amount After VAT المبلغ الإجمالي بعد ضريبة القيمة المضافة</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+                <tr>
+                    <table id="" class="table table-bordered table-striped m-b-0">
+                        <thead>
+
+                            <tr>
+                                <th><strong>استلمت من قبل: <br>Received By: <br><br></strong> </th>
+                                <th align="right"><strong>صادر عن: <br> Issued By: <br><br> </strong></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </tr>
+                @*</tbody>*@
+                <tfoot>
+                    <tr></tr>
+                </tfoot>
+            </table>
+        </div>
+        @*</div>
+        </div>
+
+        </div>*@
+
+        <footer class="footer">
+           
+            <button class="btn btn-primary"  id="printPageButton" onclick="myFunction()">Print Invoice</button>
+
+            <script>
+				function myFunction() {
+					window.print();
+				}
+            </script>
+        </footer>
+
+        @*</div>*@
+
+
+        <script src="http://crm.actovis.biz/assets/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="http://crm.actovis.biz/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="http://crm.actovis.biz/js/jquery.slimscroll.js"></script>
+        <!--Wave Effects -->
+        <script src="http://crm.actovis.biz/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="http://crm.actovis.biz/js/sidebarmenu.js"></script>
+        <!--stickey kit -->
+        <script src="http://crm.actovis.biz/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+        <script src="../public/assets/plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!--Custom JavaScript -->
+        <script src="http://crm.actovis.biz/js/custom.min.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/moment/min/moment.min.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/wizard/jquery.steps.min.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/wizard/jquery.validate.min.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/tiny-editable/numeric-input-example.js"></script>
+        <script>
+			$( '#mainTable' ).editableTableWidget().numericInputExample().find( 'td:first' ).focus();
+			$( '#editable-datatable' ).editableTableWidget().numericInputExample().find( 'td:first' ).focus();
+			$( document ).ready( function () {
+				$( '#editable-datatable' ).DataTable();
+			} );
+        </script>
+        <script>
+			$( '#mainTable2' ).editableTableWidget().numericInputExample().find( 'td:first' ).focus();
+			$( '#editable-datatable2' ).editableTableWidget().numericInputExample().find( 'td:first' ).focus();
+			$( document ).ready( function () {
+				$( '#editable-datatable2' ).DataTable();
+			} );
+        </script>
+
+        <script>
+			function printDiv( divName ) {
+				var printContents = document.getElementById( divName ).outerHTML;
+				var originalContents = document.body.innerHTML;
+
+				document.body.innerHTML = printContents;
+
+				window.print();
+				window.close();
+
+				document.body.innerHTML = originalContents;
+			}
+        </script>
+        <script>
+			$(document).ready(function(){
+    $(".translate").on('change', function postinput(){
+        var matchvalue = $(this).val(); // this.value
+        $.ajax({
+          type: "GET",
+          url: "https://www.googleapis.com/language/translate/v2",
+          data: { key: "AIzaSyBhzDf2A2VRGsDj8Q6bLJy_2GCSEFMCqps", source: "en", target: "ar", q: matchvalue },
+          dataType: 'jsonp',
+          success: function (data) {
+			  $('.nametranslate').val(data.data.translations[0].translatedText);
+
+                    },
+          error: function (data) {
+                   alert('fail');
+                 }
+          });
+
+    });
+});
+        </script>
+        <!-- Sweet-Alert  -->
+        <script src="http://crm.actovis.biz/assets/plugins/sweetalert/sweetalert.min.js"></script>
+        <script src="http://crm.actovis.biz/assets/plugins/wizard/steps.js"></script>
+        <!-- ============================================================== -->
+        <!-- Style switcher -->
+        <!-- ============================================================== -->
+        <script src="http://crm.actovis.biz/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    </body>
+
+</html>

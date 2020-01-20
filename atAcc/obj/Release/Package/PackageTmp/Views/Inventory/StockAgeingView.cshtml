@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "StockAgeingView";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Stock Ageing Report</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item">Ui Element</li>
+                <li class="breadcrumb-item active">Tab</li>
+            </ol>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body p-b-0">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs customtab2" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#account" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Product</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#accountledger" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Product Group</span></a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="account" role="tabpanel">
+                                <div class="p-20">
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-group m-t-40">
+                                            <label>Select Product</label>
+                                            <input type="text" name="product" class="form-control" id="date-mask" required>
+                                        </div>
+                                        <div class="form-group m-t-40">
+                                            <label>As On</label>
+                                            <input type="date" name="ason" class="form-control" placeholder="dd/mm/yyyy" required>
+                                        </div>
+                                    </form>
+
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-body">
+                                            <div class="row p-t-20">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>All Periods are in</label>
+                                                        <select class="select2 form-control custom-select" name="periods" style="width: 100%; height:36px;" required>
+                                                            <option>Select</option>
+                                                            <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                            <optgroup label="Pacific Time Zone"></optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">First Period</label>
+                                                        <input type="text" name="firstperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Third Period</label>
+                                                        <input type="text" name="thirdperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Fifth Period</label>
+                                                        <input type="text" name="fifthperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="controls">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Show period greater than 60 days </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="controls">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Fast Report </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Number of Period</label>
+                                                        <input type="number" name="periodno" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Second Period</label>
+                                                        <input type="text" name="secondperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Forth Period</label>
+                                                        <input type="text" name="forthperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sixth Period</label>
+                                                        <input type="text" name="sixthperiod" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Show</button>
+                                            <button type="button" class="btn btn-inverse">Close</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane active" id="accountledger" role="tabpanel">
+                                <div class="p-20">
+                                    <form role="form" method="post" action="#">
+                                        <!--  Product group -->
+                                        <div class="form-group m-t-40">
+                                            <label>Select Group</label>
+                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" required>
+                                                <option>Select</option>
+                                                <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                <optgroup label="Pacific Time Zone"></optgroup>
+                                            </select>
+                                        </div>
+                                        <div class="form-group m-t-40">
+                                            <label>As On</label>
+                                            <input type="date" name="ason" class="form-control" placeholder="dd/mm/yyyy" required>
+                                        </div>
+                                    </form>
+
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-body">
+                                            <div class="row p-t-20">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>All Periods are in</label>
+                                                        <select class="select2 form-control custom-select" name="periods" style="width: 100%; height:36px;" required>
+                                                            <option>Select</option>
+                                                            <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                            <optgroup label="Pacific Time Zone"></optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">First Period</label>
+                                                        <input type="text" name="firstperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Third Period</label>
+                                                        <input type="text" name="thirdperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Fifth Period</label>
+                                                        <input type="text" name="fifthperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="controls">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Show period greater than 60 days </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="controls">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Fast Report </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!--/span-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Number of Period</label>
+                                                        <input type="number" name="periodno" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Second Period</label>
+                                                        <input type="text" name="secondperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Forth Period</label>
+                                                        <input type="text" name="forthperiod" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Sixth Period</label>
+                                                        <input type="text" name="sixthperiod" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Show</button>
+                                            <button type="button" class="btn btn-inverse">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+<!-- row -->
+<!-- row -->
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Right sidebar -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+    </div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+@*@include('layouts.footer')*@
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=crmasp.database.windows.net;Initial Catalog=crm_iktisad;Persist Security Info=True;User ID=crm_admin;Password=Actovis@123" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Sebin\\2-01-2020\\atAcc\\atAcc\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="crm_iktisadEntities-Web.config Connection String" description="crm_iktisadEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DB.atAccModel.csdl|res://*/Models.DB.atAccModel.ssdl|res://*/Models.DB.atAccModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=crmasp.database.windows.net;initial catalog=crm_iktisad;persist security info=True;user id=crm_admin;password=Actovis@123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Sebin\\2-01-2020\\atAcc\\atAcc\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='crm_iktisadEntities']/@connectionString" />
+  </parameter>
+  <parameter name="atAcc.Models.ApplicationDbContext-Web.config Connection String" description="atAcc.Models.ApplicationDbContext Connection String used in web.config by the application to access the database." defaultValue="atAcc.Models.ApplicationDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Sebin\\2-01-2020\\atAcc\\atAcc\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='atAcc.Models.ApplicationDbContext']/@connectionString" />
+  </parameter>
+</parameters>

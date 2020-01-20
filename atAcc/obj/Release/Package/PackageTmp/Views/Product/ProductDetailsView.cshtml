@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetailsView";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <form role="form" method="post" action="/Product/SaveProduct">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0 text-white">Product Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <form role="form" method="post" action="/Product/SaveProduct">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Product Code </label>
+                                            <input type="text" name="product_code" class="form-control" id="date-mask">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Name </label>
+                                            <input type="text" name="product_name" class="form-control" id="product_name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Name in Arabic</label>
+                                            <input type="text" name="product_namearabic" class="form-control" id="arabic_productname" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label>HSN Code</label>
+                                            <input type="text" name="hsn_code" class="form-control" id="date-mask">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Base Unit </label>
+                                            <input type="number" name="base_unit" class="form-control" id="date-mask">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Product Color </label>
+                                            <input type="text" name="product_color" class="form-control" id="date-mask">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Product Group </label><a href="/Product/ProductGroupView"> <label class="pull-right">Add Group <i class="fas fa-plus"></i></label></a>
+                                            @Html.DropDownList("product_group", new SelectList(ViewBag.groups, "id", "group_name"), "Please select", new { @id = "group_id", @class = "form-control" })
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" class="form-control" id="quantity">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Rack </label><a href="/Rack/Index"> <label class="pull-right">Add Rack <i class="fas fa-plus"></i></label></a>
+                                            @Html.DropDownList("rack_id", new SelectList(ViewBag.data, "id", "rack_name"), "Please select rack", new { @id = "rack_id", @class = "form-control" })
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Description</label>
+                                            <textarea name="description" id="shortDescription1" rows="3" class="form-control"></textarea>
+                                        </div>
+                                        
+                                    </div>
+
+                                <div class="col-md-6">
+                                 
+                                        <!-- Step 1 -->
+
+                                        <section>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="firstName1">Minimum</label>
+                                                        <input type="text" name="minimum" class="form-control" id="firstName1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="lastName1">Reorder</label>
+                                                        <input type="text" name="reorder" class="form-control" id="lastName1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="lastName1">Maximum</label>
+                                                        <input type="text" name="maximum" class="form-control" id="lastName1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="emailAddress1">Purchase Rate</label>
+                                                        <input type="number" name="purchase_rate" class="form-control" id="purchase_rate">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="phoneNumber1">Sales Rate</label>
+                                                        <input type="number" name="sales_rate" class="form-control" id="sales_rate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="emailAddress1">Sales Rate %</label>
+                                                        <input type="number" name="sales_percent" onkeyup='discount();' class="form-control" id="sales_percent">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Select Tax </label><a href="/tax/Index"> <label class="pull-right">Add Tax <i class="fas fa-plus"></i></label></a>
+                                                        @Html.DropDownList("tax_type", new SelectList(ViewBag.tax, "id", "tax_name"), "Please select tax", new { @id = "tax_type", @class = "form-control" })
+
+                                                    </div>
+                                                </div>
+
+                                                </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="emailAddress1">MRP</label>
+                                                        <input type="number" name="mrp" class="form-control" id="emailAddress1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="phoneNumber1">Minimum Sales Rate</label>
+                                                        <input type="number" name="min_salesrate" class="form-control" id="phoneNumber1">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-primary" type="reset">Clear</button>
+
+
+                                        </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="http://crm.actovis.biz/assets/plugins/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+   
+    function discount() {
+        var sales_prcnt = $('#sales_percent').val();
+        var amount = $('#purchase_rate').val();
+        var rate = (amount * sales_prcnt) / 100;
+        $('#sales_rate').val(parseInt(amount) + parseInt(rate));
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#product_name").on('change', function postinput() {
+            var matchvalue = $(this).val(); // this.value
+            $.ajax({
+                type: "GET",
+                url: "https://www.googleapis.com/language/translate/v2",
+                data: { key: "AIzaSyBhzDf2A2VRGsDj8Q6bLJy_2GCSEFMCqps", source: "en", target: "ar", q: matchvalue },
+                dataType: 'jsonp',
+                success: function (data) {
+                    $('#arabic_productname').val(data.data.translations[0].translatedText);
+
+                },
+                error: function (data) {
+                    alert('fail');
+                }
+            });
+        });
+    });
+</script>

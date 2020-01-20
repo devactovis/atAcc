@@ -1,0 +1,189 @@
+﻿@model atAcc.Models.ViewModels.EmployeeDetails
+
+@{
+    ViewBag.Title = "EmployeeView";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">@ViewBag.type</h4>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="post" action="@ViewBag.action">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="hidden" name="@ViewBag.name" id="@ViewBag.name" value="@ViewBag.id" />
+                                        <div class="form-group">
+                                            <label>Employee ID</label>
+                                            @Html.TextBoxFor(model => model.emp_id, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Name</label>
+                                            @Html.TextBoxFor(model => model.emp_name, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Department</label>
+                                            @Html.TextBoxFor(model => model.department, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="m-b-10">
+                                                <label class="custom-control custom-radio">
+                                                    @Html.RadioButtonFor(model => model.type, "Sales", new { @class = "custom-control-input" })
+                                                    <span class="custom-control-label">Salesman</span>
+                                                </label>
+                                                <label class="custom-control custom-radio">
+                                                    @Html.RadioButtonFor(model => model.type, "Service", new { @class = "custom-control-input" })
+                                                    <span class="custom-control-label">Serviceman</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="shortDescription1">Address :</label>
+                                            @Html.TextAreaFor(model => model.emp_addr, new { @class = "form-control", @rows = "3" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">City</label>
+                                            @Html.TextBoxFor(model => model.city, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Postal Code</label>
+                                            @Html.TextBoxFor(model => model.postal_code, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">State</label>
+                                            @Html.TextBoxFor(model => model.state, null, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <div class="form-group">
+                                            <label class="control-label">Nationality</label>
+                                            @Html.TextBoxFor(model => model.nationality, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Remarks</label>
+                                            @Html.TextBoxFor(model => model.remarks, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Telephone</label>
+                                            @Html.TextBoxFor(model => model.tel_no, null, new { @class = "form-control", @type = "number", @maxlength = "10" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Email</label>
+                                            @Html.TextBoxFor(model => model.email_id, null, new { @class = "form-control", type = "email" })
+                                        </div>
+
+                                    </div>
+
+                                    <!--/span-->
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Passport Number</label>
+                                            @Html.TextBoxFor(model => model.passport_no, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Visa Status</label>
+                                            @Html.TextBoxFor(model => model.visa_status, null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Passport Expiry Date</label>
+                                            @Html.TextBoxFor(model => model.psprt_expdate, null, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Visa Date</label>
+                                            @Html.TextBoxFor(model => model.visa_date, null, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+                                            @*<input type="date" name="visadate" class="form-control" placeholder="dd/mm/yyyy" required>*@
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col=md-2">
+
+                                        <div class="form-group">
+                                            <label class="control-label">Date of Joining</label>
+                                            @Html.TextBoxFor(model => model.join_date, null, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+                                        </div>
+
+                                        <div class="m-b-10">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="is_contract" type="checkbox" class="custom-control-input checkbox" onclick="$(this).attr('value', this.checked ? 1 : 0)" value="0">
+                                                <span class="custom-control-label">Contract Employee</span>
+
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Contract End Date</label>
+                                            @Html.TextBoxFor(model => model.contract_end, null, new { @class = "form-control", placeholder = "dd/mm/yyyy" })
+                                        </div>
+
+                                        <div class="m-b-10">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="is_employee" type="checkbox" class="custom-control-input checkbox" onclick="$(this).attr('value', this.checked ? 1 : 0)" value="0">
+                                                <span class="custom-control-label">Active Employee</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <button type="button" class="btn btn-inverse">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    @*@include('layouts.footer')*@
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->

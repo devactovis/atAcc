@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "StockValuationView";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Stock Valuation Report</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item">Forms</li>
+                <li class="breadcrumb-item active">Form Typehead</li>
+            </ol>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <label class="custom-control custom-radio">
+                            <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                            <span class="custom-control-label">Product</span>
+                        </label>
+                    </div>
+                    <div class="card-body">
+                        <label class="custom-control custom-radio">
+                            <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                            <span class="custom-control-label">Group</span>
+                        </label>
+                    </div>
+                    <div class="card-body">
+                        <label class="custom-control custom-radio">
+                            <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                            <span class="custom-control-label">All</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Product</h4>
+                        <input class="typeahead form-control" type="text" name="product" required>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <div class="controls">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">All Depots</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <div class="controls">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Ignore Negative Stock</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">As on Date</h4>
+
+                        <div id="prefetch">
+                            <input type="date" name="asondate" class="typeahead form-control" placeholder="dd/mm/yyyy" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+
+
+
+                    <div class="card-body">
+                        <form role="form" method="post" action="#">
+                            <div class="form-body">
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="controls">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label"><h3>User Field</h3></span>
+                                            </label>
+                                        </div>
+                                        <div class="card-body">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                                                <span class="custom-control-label">User Field 1</span>
+                                            </label>
+                                        </div>
+                                        <div class="card-body">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                                                <span class="custom-control-label">User Field 3</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group m-t-40">
+                                            <label></label>
+
+                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;" required>
+                                                <option>Select</option>
+                                                <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                <optgroup label="Pacific Time Zone"></optgroup>
+                                            </select>
+                                        </div>
+
+
+
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                                                <span class="custom-control-label">User Field 2</span>
+                                            </label>
+                                        </div>
+                                        <div class="card-body">
+                                            <label class="custom-control custom-radio">
+                                                <input id="radio1" name="radio" type="radio" class="custom-control-input" required>
+                                                <span class="custom-control-label">User Field 4</span>
+                                            </label>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="text-xs-right">
+                                <button type="submit" class="btn btn-info">Show</button>
+                                <button type="reset" class="btn btn-inverse">Close</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <!-- row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    @*@include('layouts.footer')*@
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+

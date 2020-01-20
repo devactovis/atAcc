@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "viewemployee";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Employee Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="get" action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row pl-4">
+                                            <div><label>Search by : &nbsp;&nbsp;</label></div>
+                                            <div>
+                                                <input type="text" name="empid" class="form-control" placeholder="ID">
+                                            </div>
+                                            <div>&nbsp;&nbsp;</div>
+                                            <div>
+                                                <input type="text" name="empid" class="form-control" placeholder="Name">
+                                            </div>
+                                            <div>&nbsp;&nbsp;</div>
+                                            <div><button class="btn btn-primary" type="submit" style="height:30px;">Search</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pl-2 pt-2">
+                                <form role="form" method="get" action="#">
+                                    <div class="table-responsive" style="height:300px; overflow-y:auto;">
+                                        <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" width:99%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl No</th>
+                                                    <th>Employee ID</th>
+                                                    <th>Name</th>
+                                                    <th>Department</th>
+                                                    <th>Address</th>
+                                                    <th>City</th>
+                                                    <th>Postal Code</th>
+                                                    <th>State</th>
+                                                    <th>Nationality</th>
+                                                    <th>Telephone</th>
+                                                    <th>Email</th>
+                                                    <th>Passport Number</th>
+                                                    <th>Visa Status</th>
+                                                    <th>Passport Expiry Date</th>
+                                                    <th>Contract End Date</th>
+                                                    <th>Remarks</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    @{ int i = 1;}
+                                                    @foreach (var data in ViewBag.Data)
+                                                    {
+                                                        
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        <td>@data.emp_id</td>
+                                                        <td>@data.emp_name</td>
+                                                        <td>@data.department</td>
+                                                        <td>@data.emp_addr</td>
+                                                        <td>@data.city</td>
+                                                        <td>@data.postal_code</td>
+                                                        <td>@data.state</td>
+                                                        <td>@data.nationality</td>
+                                                        <td>@data.tel_no</td>
+                                                        <td>@data.email_id</td>
+                                                        <td>@data.passport_no</td>
+                                                        <td>@data.visa_status</td>
+                                                        <td>@data.psprt_expdate</td>
+                                                        <td>@data.contract_end</td>
+                                                        <td>@data.department</td>
+                                                        @*<td><input type="button" class="btn">  <input type="button" value="Click Me" onclick="Confirmation(@data.id);" /> </td>*@
+                                                        <td align="center"><a href="/Employee/EmployeeView?id=@data.id" data-toggle="tooltip" title="Edit"><i class="fas fa-user-edit"></i></a> &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="Confirmation(@data.id)"><i class="fas fa-trash"></i></a></td>
+                                                    </tr>
+                                                    i++;
+                                                    }  
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    @*@include('layouts.footer')*@
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

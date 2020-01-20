@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "ViewInvoice";
+}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Invoice List</h4>
+                    </div>
+                    <div class="card-body">
+                   
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row pl-4">
+                                            <div><label>Search by : &nbsp;&nbsp;</label></div>
+                                            <div>
+                                                <input type="text" name="empid" class="form-control" placeholder="ID" id="invoice_id">
+                                            </div>
+                                            <div>&nbsp;&nbsp;</div>
+                                            
+                                            <div>&nbsp;&nbsp;</div>
+                                            <div><button class="btn btn-primary" type="button" style="height:30px;" onclick="search()">Search</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pl-2 pt-2">
+                                <form role="form" method="get" action="#">
+                                    <div class="table-responsive" >
+                                        <div class="table-responsive">
+                                            <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" style="cursor: pointer; width:99%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th align="center">Sl No</th>
+                                                        <th>Invoice Id</th>
+                                                        <th>Account Type</th>
+                                                        <th>Type</th>
+                                                        <th>Account Id</th>
+                                                        <th>Remarks</th>
+                                                        <th>Depo</th>
+                                                        <th>Purchase Acc</th>
+                                                        <th>Date</th>
+                                                        <th>Party VNo</th>
+                                                        <th>Total Qty</th>
+                                                        <th>Total Gross</th>
+                                                        <th>Total Net</th>
+                                                        <th width="2%">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Invoice/getInvoiceList",
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                var employeeTable = $('#mainTable tbody');
+                employeeTable.empty();
+                $(data).each(function (index, emp) {
+
+                      employeeTable.append('<tr><td>' + emp.id + '</td><td>'
+                        + emp.invoice_id + '</td><td>' + emp.cash_party_acc + '</td><td>' + emp.type
+                        + '</td><td>' + emp.acc_id + '</td><td>' + emp.remarks + '</td><td>' + emp.depot_loc + '</td><td>' + emp.purchase_acc + '</td><td>'
+                        + emp.date + '</td><td>' + emp.party_vno + '</td><td>' + emp.tot_qty + '</td><td>' + emp.tot_gross + '</td><td>'
+                        + emp.tot_net + '</td><td align="center" id="action"><i class="fas fa-caret-down" onclick="getProduct('
+                        + emp.id + ')"></i></td></tr><tr><td colspan="14" id ="product_' + emp.id + '"></td></tr>');
+                })
+                
+            },
+            error: function () {
+                alert('something went wrong !');
+            }
+        })
+    });
+    </script>
+
+<script>
+    function getProduct(id)
+    {
+        var url = '@Url.Action("LoadProducts", "Invoice")';
+        $('#product_' + id).load(url, { id: id });
+        var data = '<i class="fas fa-caret-up" onclick="getProduct('+ id + ')';
+        $("#action").html("<i class='fas fa-caret-up' onclick='hide("+id+")'></i>");
+    }
+</script>
+
+<script>
+    function hide(id)
+    {
+        $('#product_' + id).empty();
+        $("#action").html("<i class='fas fa-caret-down' onclick='getProduct(" + id + ")'></i>");
+    }
+</script>
+
+<script>
+    function search()
+    {
+        var id = $('#invoice_id').val();
+        if (id.length > 0)
+        {
+            $.ajax({
+                url: "/Invoice/getInvoiceListFilter",
+                type: "POST",
+                dataType: "json",
+                data: { id: id },
+                success: function (data) {
+                    var employeeTable = $('#mainTable tbody');
+                    employeeTable.empty();
+                    $(data).each(function (index, emp) {
+
+                        employeeTable.append('<tr><td>' + emp.id + '</td><td>'
+                          + emp.invoice_id + '</td><td>' + emp.cash_party_acc + '</td><td>' + emp.type
+                          + '</td><td>' + emp.acc_id + '</td><td>' + emp.remarks + '</td><td>' + emp.depot_loc + '</td><td>' + emp.purchase_acc + '</td><td>'
+                          + emp.date + '</td><td>' + emp.party_vno + '</td><td>' + emp.tot_qty + '</td><td>' + emp.tot_gross + '</td><td>'
+                          + emp.tot_net + '</td><td align="center" id="action"><i class="fas fa-caret-down" onclick="getProduct('
+                          + emp.id + ')"></i></td></tr><tr><td colspan="14" id ="product_' + emp.id + '"></td></tr>');
+                    })
+                },
+                error: function () {
+                    alert('something went wrong !');
+                }
+            })
+        }
+        else
+        {
+            alert("hello");
+        }
+    }
+</script>

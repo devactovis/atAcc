@@ -1,0 +1,291 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Al - Iktisad - Invoice</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="http://crm.actovis.biz/assets/images/favicon.png">
+
+    <link href="http://crm.actovis.biz/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://crm.actovis.biz/assets/plugins/wizard/steps.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="http://crm.actovis.biz/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+
+
+    <link href="http://crm.actovis.biz/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="http://crm.actovis.biz/css/colors/blue.css" id="theme" rel="stylesheet">
+    <style type="text/css">
+       @Page { size:10in 12in; margin: 0.5cm }
+        table, th, td, tr{
+			border:1px solid #666666 !important;
+		}
+		@@media print {
+            #printPageButton {
+                display: none;
+            }
+                }
+    </style>
+
+</head>
+
+
+
+<body class="container-fluid" style="font-size: 15px !important;">
+    <div id="main-wrapper">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <table class="table  table-bordered table-striped m-b-0">
+            <th colspan="3" class="text-center" align="center">
+                <strong>فاتورة ضريبية<br>TAX INVOICE</strong>
+            </th>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Company Name: <br /><label id="companyname"></label></span> <br /><br />
+                        <span id="partyspan">Party V.No: <br /><label id="partyvno"></label></span>
+                    </td>
+                    <td align="right" >: اسم الزبون  <br /><label id="companynamearabic"></label><br /><br /> :ظريبه الشراء   <br /><label id="partyvno"></label></td>
+                    <td>
+                        Invoice Date: <label id="invoicedate"></label> <br>
+                        <div class="pull-right">
+                            :تاريخ الفاتورة
+                        </div><br>
+                        Invoice Id: <label id="invoiceno"></label> <br>
+                        <div class="pull-right">
+                            :رقم الفاتورة
+                        </div><br>
+                        Purchase Acc.No: <label id="ponumber"></label> <br>
+                        <div class="pull-right">
+                            :رقم طلب الشراء
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        VAT Number: <label id="vatnumber"></label> <br>
+                        <div class="pull-right">
+                            <label id="vatnumber2"></label>
+                            :ظريبه الشراء
+                        </div>
+                    </td>
+                    <td>
+                        Contact Number: <label id="contact"></label> <br>
+                        <div class="pull-right">
+                            <label id="contact2"></label>
+                            :رقم الاتصال
+                        </div>
+                    </td>
+                    <td>
+                        Supply Date: <label></label> <br>
+                        <div class="pull-right">
+                            :تاريخ العرض
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Mode of payment: <label id="paymode"></label><br>
+                        طريقة الدفع
+                    </td>
+                    <td>
+                        DN Number: <br>
+                        مذكرة تسليم
+                    </td>
+                </tr>
+                <tr>
+                    <table class="table  table-bordered table-striped m-b-0">
+                        <th width="10" align="center">Sl.No</th>
+                        <th align="center">Product Code</th>
+                        <th align="center">Description</th>
+                        <th align="center">Qty</th>
+                        <th align="center">MRP</th>
+                        <th align="center">Tax</th>
+                        <th align="center">Amount</th>
+                        <tbody id="products">
+                            
+                            </tbody>
+                            <tr>
+                                <td colspan="5" rowspan="4"></td>
+                                <td>
+                                    Sub Total
+                                    <div class="pull-right">:المجموع الفرعي</div>
+                                </td>
+                                <td><label id="subtotal"></label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Discount
+                                    <div class="pull-right">:خصم</div>
+                                </td>
+                                <td><label id="discount"></label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total VAT
+                                    <div class="pull-right">:مجموع برميل</div>
+                                </td>
+                                <td><label id="vat"></label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total 
+                                    <div class="pull-right">:مجموع</div>
+                                </td>
+                                <td><label id="total"></label></td>
+                            </tr>
+                            <tr style="border: none;">
+                                <td colspan="5">
+                                    استلمت من قبل<br>
+                                    Received By:
+                                </td>
+                                <td colspan="2">
+                                    <div class="">
+                                        صادر عن <br>
+                                        Issued By: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+    <script src="http://crm.actovis.biz/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="http://crm.actovis.biz/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="http://crm.actovis.biz/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="http://crm.actovis.biz/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="http://crm.actovis.biz/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="http://crm.actovis.biz/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="http://crm.actovis.biz/js/custom.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/moment/min/moment.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/wizard/jquery.steps.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/wizard/jquery.validate.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/tiny-editable/numeric-input-example.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Invoice/InvoicePrint",
+                data: { id: "@ViewBag.id" },
+                dataType: 'json',
+                success: function (data) {
+                    var slno = 1;
+                    $.each(data, function (i, product) {
+                        i++;
+                        var acc_id = product["tbl_invoice"].acc_id;
+                        if(acc_id=="custom")
+                        {
+                            $.ajax({
+                                type: "POST",
+                                url: "/Invoice/invoiceCustome",
+                                data: { acc_id: "@ViewBag.id" },
+                                dataType: 'json',
+                                success : function (data2)
+                                {
+                                    
+                                    $.each(data2, function (i, item) {
+                                        $("#companyname").html(data2[0].party_name);
+                                        $("#partyvno").html(data2[0].party_vno);
+                                        $("#companynamearabic").html(data2[0].party_namearabic);
+
+                                    });
+                                }
+                            });
+
+
+                        }
+                        else
+                        {
+                            $.ajax({
+                                type: "POST",
+                                url: "/Invoice/invoiceAccount",
+                                data: { acc_id: acc_id },
+                                dataType: 'json',
+                                success: function (data2) {
+                                    
+                                    $.each(data2, function (i, item) {
+                                        $("#partyspan").html("");
+                                        $("#companyname").html(data2[0].contact_person + "<br>" + data2[0].addr1 + "<br>" + data2[0].addr2 + "<br>" + data2[0].city);
+                                        
+                                        $("#partyvno").html("");
+                                        $("#companynamearabic").html(data2[0].contact_personArabic + "<br>" + data2[0].addr1Arabic + "<br>" + data2[0].addr2Arabic + "<br>" + data2[0].cityArabic);
+                                        $("#vatnumber").html(data2[0].vat_no);
+                                        $("#vatnumber2").html(data2[0].vat_no); 
+                                        $("#contact").html(data2[0].mob_no);
+                                        $("#contact2").html(data2[0].mob_no);
+                                    });
+                                }
+                            });
+
+
+                        }
+                        var invoiceid = product["tbl_invoice"].invoice_id;
+                        $("#invoiceno").html(invoiceid);
+                        $("#ponumber").html(product["tbl_invoice"].purchase_acc); 
+                        $("#paymode").html(product["tbl_invoice"].cash_party_acc);
+                        var rowdata = "<tr>" + 
+                            "<td>"+slno+"</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].code + "</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].product_name + "</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].quantity + "</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].mrp + "</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].total_tax + "</td>" +
+                            "<td>" + product["tbl_purchaseInvoice"].net_amt + "</td>" +
+                            "</tr>";
+                        $("#products").append(rowdata);
+                        slno++;
+                        $("#total").html(product["tbl_invoice"].tot_net);
+                        $("#subtotal").html(product["tbl_invoice"].tot_gross);
+                        var disc = "";
+                        if (product["tbl_invoice"].spl_disc == null) {
+                            $("#discount").html("0");
+                        } else {
+                            $("#discount").html(product["tbl_invoice"].tot_gross);
+                        }
+                        $("#vat").html((product["tbl_invoice"].tot_net * 5) / 100);
+                        $("#discount").html("0");
+                        var value = new Date(parseInt(product["tbl_invoice"].date.replace(/(^.*\()|([+-].*$)/g, '')));
+                        var date = value.getMonth() + 1 + "-" + value.getDate() + "-" + value.getFullYear();
+                        $("#invoicedate").html(date);
+                    });
+
+                },
+                error: function (data) {
+                    alert('fail');
+                }
+            });
+        });
+    </script> 
+    <!-- Sweet-Alert  -->
+    <script src="http://crm.actovis.biz/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="http://crm.actovis.biz/assets/plugins/wizard/steps.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="http://crm.actovis.biz/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>

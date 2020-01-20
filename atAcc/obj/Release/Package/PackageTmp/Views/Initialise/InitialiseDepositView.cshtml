@@ -1,0 +1,404 @@
+﻿
+@{
+    ViewBag.Title = "InitialiseDepositView";
+}
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Depot</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item">Ui Element</li>
+                <li class="breadcrumb-item active">Tab</li>
+            </ol>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="form-body">
+                        <div class="row p-t-20">
+                            <div class="col-md-6">
+
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Search In</label>
+                                    <select class="select2 form-control custom-select" name="searchin" style="width: 100%; height:36px;">
+
+                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                    </select>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Search for</label>
+                                    <input type="text" name="searchfor" class="form-control" required>
+                                </div>
+                                <br>
+                                <br>
+                                <div>
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                                <br>
+
+
+
+
+
+                            </div>
+                            <!--/span-->
+
+
+                        </div>
+
+                    </div>
+                    <div class="card-body p-b-0">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs customtab2" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#pro" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">WareHouse</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#adj" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Vehicle</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#mis" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Person</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#sea" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Project</span></a>
+                            </li>
+
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="pro" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="table-responsive">
+                                                    <div class="p-20">
+                                                        <form>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault01">Depot Name</label>
+                                                                    <input type="text" name="depotname" class="form-control" id="validationDefault01">
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault02">Address</label>
+                                                                    <input type="text" name="address" class="form-control" id="validationDefault02">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault03">Under Depo</label>
+                                                                    <input type="text" name="underdepo" class="form-control" id="validationDefault03">
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault04">Postal Code</label>
+                                                                    <input type="number" name="postalcode" class="form-control" id="validationDefault04">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault03">City</label>
+                                                                    <input type="text" name="city" class="form-control" id="validationDefault03">
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault04">Mobile</label>
+                                                                    <input type="number" maxlength="12" name="mobile" class="form-control" id="validationDefault04">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault03">Telephone</label>
+                                                                    <input type="number" name="telephone" class="form-control" id="validationDefault03">
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault04">Reg. No</label>
+                                                                    <input type="text" name="regno" class="form-control" id="validationDefault04">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault03">Contact Person</label>
+                                                                    <input type="text" name="contactperson" class="form-control" id="validationDefault03">
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault04">Description</label>
+                                                                    <input type="text" name="description" class="form-control" id="validationDefault04">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label for="validationDefault03">Licence No</label>
+                                                                    <input type="text" name="licenceno" class="form-control" id="validationDefault03">
+                                                                </div>
+
+
+                                                            </div>
+
+
+
+
+
+                                                        </form>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="adj" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="p-20">
+                                                    <form role="form" method="post" action="#">
+                                                        <div class="form-row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefault01">*Vehicle Name</label>
+                                                                <input type="text" name="vehiclename" class="form-control" id="validationDefault01">
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefault03">*Vehicle No</label>
+                                                                <input type="text" name="vehicleno" class="form-control" id="validationDefault03">
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefault03">Description</label>
+                                                                <input type="text" name="description" class="form-control" id="validationDefault03">
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefault03">Contact Person</label>
+                                                                <input type="text" name="contactperson" class="form-control" id="validationDefault03">
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="validationDefault03">Mobile</label>
+                                                                <input type="number" maxlength="12" name="mobile" class="form-control" id="validationDefault03">
+                                                            </div>
+
+
+                                                        </div>
+
+
+
+
+
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="mis" role="tabpanel">
+                                <div class="p-20">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault01">*Name</label>
+                                                <input type="text" name="name" class="form-control" id="validationDefault01" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Short Name</label>
+                                                <input type="text" name="shortname" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Description</label>
+                                                <input type="text" name="description" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Contact Person</label>
+                                                <input type="text"  name="contactperson" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Mobile</label>
+                                                <input type="number" maxlength="12" name="mobile" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="pay" role="tabpanel">
+                                <div class="p-20">
+                                    form4
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="sea" role="tabpanel">
+                                <div class="p-20">
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault01">*Project Name</label>
+                                                <input type="text" name="projectname" class="form-control" id="validationDefault01" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Short Name</label>
+                                                <input type="text" name="shortname" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Description</label>
+                                                <input type="text" name="description" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Contact Person</label>
+                                                <input type="text" name="contactperson" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Mobile</label>
+                                                <input type="number" maxlength="12" name="mobile" class="form-control" id="validationDefault03" required>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="sett" role="tabpanel">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <form>
+
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-primary" type="submit">Clear</button>
+                    <button class="btn btn-primary" type="submit">Close</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- row -->
+<!-- row -->
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Right sidebar -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+@*@include('layouts.footer')*@
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+
+

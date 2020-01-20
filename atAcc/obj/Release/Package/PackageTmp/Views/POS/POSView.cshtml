@@ -1,0 +1,475 @@
+﻿
+@{
+    ViewBag.Title = "POSView";
+}
+
+
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">POS</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">Home</a>
+                </li>
+                <li class="breadcrumb-item">Ui Element</li>
+                <li class="breadcrumb-item active">Tab</li>
+            </ol>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="form-body">
+                        <div class="row p-t-20">
+                            <div class="col-md-6">
+                                <br>
+                                <div class="col-md-12">
+                                    <label>V No</label>
+                                    <select class="select2 form-control custom-select" name="vno" style="width: 100%; height:36px;">
+
+                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                    </select>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Date</label>
+                                    <input type="date" name="date" class="form-control" placeholder="dd/mm/yyyy">
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Salesman</label>
+                                    <select class="select2 form-control custom-select" name="saleman" style="width: 100%; height:36px;">
+                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                    </select>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Party Name</label>
+                                    <input type="text" name="partyname" class="form-control">
+                                </div>
+                                <br>
+
+
+                                <div>
+                                    <br>
+                                    <center>
+                                        <button class="btn btn-primary" type="submit">New Party</button>
+                                    </center>
+                                    <br>
+                                </div>
+
+
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group m-t-40">
+                                    <label>Party</label>
+                                    <select class="select2 form-control custom-select" name="party" style="width: 100%; height:36px;">
+                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Acc ID</label>
+                                    <input type="text" name="accid" class="form-control">
+                                </div>
+                                <br>
+
+                                <br>
+                                <div class="col-md-12">
+                                    <label class="control-label">Remarks</label>
+                                    <input type="text" name="remarks" class="form-control">
+                                </div>
+                                <br>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card-body p-b-0">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs customtab2" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#pro" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">General</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#adj" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Others</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#mis" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Payment</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " data-toggle="tab" href="#sea" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Search</span></a>
+                            </li>
+
+
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="pro" role="tabpanel">
+                                <div class="p-20">
+                                    form1
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="adj" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="form-body">
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <label>Settings</label>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label>Depot/Location</label>
+                                                    <select class="select2 form-control custom-select" name="depotlocation" style="width: 100%; height:36px;">
+
+                                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                                    </select>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Sale Type</label>
+                                                    <select class="select2 form-control custom-select" name="salestype" style="width: 100%; height:36px;">
+                                                        <optgroup label="Alaskan/Hawaiian Time Zone"></optgroup>
+                                                        <optgroup label="Pacific Time Zone"></optgroup>
+                                                    </select>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Pole Display Port</label>
+                                                    <input type="text" name="poledisplayport" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Idle Display Text 1</label>
+                                                    <input type="text" name="idledisplaytext1" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Idle Display Text 2</label>
+                                                    <input type="text" name="idledisplaytext2" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Currency Symbol</label>
+                                                    <input type="text" name="currencysymbol" class="form-control">
+                                                </div>
+                                                <br>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <div class="controls">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Lock Vno Field</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <div class="controls">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Touch Screen</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <div class="controls">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Number Pad</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <div class="controls">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Simple Print</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <div class="controls">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Persist Holding VoucherNo</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-primary" type="submit">POS Report</button>
+                                                </div>
+
+
+
+
+
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <label>Weigh Scale Settings</label>
+                                                <div class="form-group m-t-40">
+                                                    <label>No of Digit</label>
+                                                    <input type="text" name="digitno" class="form-control">
+                                                </div>
+
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">POS Flag Length</label>
+                                                    <input type="text" name="posflaglength" class="form-control">
+                                                </div>
+                                                <br>
+
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">POS Char</label>
+                                                    <input type="text" name="poschar" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Product Code Length</label>
+                                                    <input type="text" name="productcodelength" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Weight Whole Part Length</label>
+                                                    <input type="text" name="wgtwholepartlength" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Weight Fraction Length</label>
+                                                    <input type="text" name="wgtfractionlength" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Rate Whole Part Length</label>
+                                                    <input type="text" name="rtwholepartlength" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Rate Fraction Length</label>
+                                                    <input type="text" name="rtfractionlength" class="form-control">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Check Digit Length</label>
+                                                    <input type="text" name="chkdigitlength" class="form-control">
+                                                </div>
+                                                <br>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="mis" role="tabpanel">
+                                <div class="p-20">
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault01">Mode of Payment</label>
+                                                <input type="text" name="modepayment" class="form-control" id="validationDefault01">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Bank</label>
+                                                <input type="text" name="bank" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Card Type</label>
+                                                <input type="text" name="cardtype" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Cc/Chq No</label>
+                                                <input type="text" name="ccchqno" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Chq Date</label>
+                                                <input type="date" name="chqdate" class="form-control" placeholder="dd/mm/yyyy">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Amount</label>
+                                                <input type="text" name="amount" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Balance</label>
+                                                <input type="text" name="balance" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-row">
+
+                                            <label>By Cash</label>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="validationDefault03">Paid Amount</label>
+                                                <input type="text" name="paidamount" class="form-control" id="validationDefault03">
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="pay" role="tabpanel">
+                                <div class="p-20">
+                                    form4
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="sea" role="tabpanel">
+                                <div class="p-20">
+                                    <form role="form" method="post" action="#">
+                                        <div class="form-group m-t-40">
+                                            <label></label>
+                                            <input type="text" class="form-control" id="date-mask">
+                                        </div>
+                                        <div class="form-group m-t-40">
+                                            <label>From</label>
+                                            <input type="date" name="from" class="form-control" placeholder="dd/mm/yyyy">
+                                        </div>
+                                        <div class="form-group m-t-40">
+                                            <label>To</label>
+                                            <input type="date" name="to" class="form-control" placeholder="dd/mm/yyyy">
+                                        </div>
+
+                                        <button class="btn btn-primary" type="submit">Search</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="sett" role="tabpanel">
+                                <div class="p-20">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <div class="controls">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" required value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Using Barcode</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <form>
+
+
+                    <button class="btn btn-primary" type="submit">Apply</button>
+                    <button class="btn btn-primary" type="submit">Touchpad</button>
+                    <button class="btn btn-primary" type="submit">Number</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+  
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Right sidebar -->
+            
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+@*@include('layouts.footer')*@
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
+       
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+
+
