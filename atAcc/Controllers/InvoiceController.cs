@@ -44,10 +44,13 @@ namespace atAcc.Controllers
                     var custome = entityOBJ.tbl_custominvoice.Where(m => m.invoice_id == invoice_id).ToList();
                     ViewBag.custome = custome;
                 }
+                var products = entityOBJ.tbl_purchaseInvoice.Where(m => m.invoice_id == id).ToList();
+                ViewBag.products = products;
                 return View();
             }
             else
             {
+                ViewBag.products = null;
                 ViewBag.tableData = null;
                 ViewBag.custome = null;
                 ViewBag.id = null;
