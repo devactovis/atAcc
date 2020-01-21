@@ -408,7 +408,6 @@ F:\Sebin\2-01-2020\atAcc\atAcc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\Sebin\2-01-2020\atAcc\atAcc\obj\Debug\atAcc.dll
 F:\Sebin\2-01-2020\atAcc\atAcc\obj\Debug\atAcc.pdb
 F:\Sebin\2-01-2020\atAcc\atAcc\obj\Debug\atAcc.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\bin\ApplicationInsights.config
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\bin\roslyn\csc.exe
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -491,87 +490,3 @@ C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\bin\Micros
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\obj\Debug\atAcc.csprojResolveAssemblyReference.cache
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\obj\Debug\atAcc.dll
 C:\Users\sebin george\Desktop\Projects\Backups\atAcc-pull\atAcc\atAcc\obj\Debug\atAcc.pdb
-=======
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\ApplicationInsights.config
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\csc.exe
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.CodeAnalysis.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\Microsoft.VisualBasic.Core.targets
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\System.Collections.Immutable.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\System.Reflection.Metadata.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\vbc.exe
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\VBCSCompiler.exe
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\roslyn\VBCSCompiler.exe.config
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\atAcc.dll.config
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\atAcc.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\atAcc.pdb
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Antlr3.Runtime.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\EntityFramework.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\EntityFramework.SqlServer.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.Agent.Intercept.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.DependencyCollector.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.PerfCounterCollector.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.ServerTelemetryChannel.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.Web.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.WindowsServer.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.ApplicationInsights.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.Core.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.Owin.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Host.SystemWeb.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Cookies.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Facebook.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Google.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.OAuth.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Twitter.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Web.Infrastructure.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Newtonsoft.Json.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Owin.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Helpers.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Mvc.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Optimization.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Razor.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.Deployment.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.Razor.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\WebGrease.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.DependencyCollector.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.ServerTelemetryChannel.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.Web.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AI.WindowsServer.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.ApplicationInsights.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Helpers.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Mvc.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Optimization.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.Razor.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.Deployment.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\System.Web.WebPages.Razor.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Antlr3.Runtime.pdb
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Newtonsoft.Json.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\EntityFramework.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\EntityFramework.SqlServer.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.Core.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.Owin.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Host.SystemWeb.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Facebook.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Cookies.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.OAuth.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Google.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.Twitter.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\obj\Debug\atAcc.csprojResolveAssemblyReference.cache
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\obj\Debug\atAcc.dll
-F:\Sebin\2-01-2020\atAcc\atAcc\atAcc\obj\Debug\atAcc.pdb
->>>>>>> 39bf2720be6795c066522aacbcf8cd67c1fcb29d
