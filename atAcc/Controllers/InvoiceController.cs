@@ -19,13 +19,43 @@ namespace atAcc.Controllers
         }
         public ActionResult ViewInvoice()
         {
+            var data = entityOBJ.tbl_invoice.ToList();
+            ViewBag.data = data;
             return View();
         }
         public ActionResult PurchaseInvoiceView()
         {
             var accnts = entityOBJ.tbl_accountLedgerDtls.ToList();
             ViewBag.data = accnts;
-            return View();
+            string id = Request.QueryString["id"];
+            if (id != null)
+            {
+                ViewBag.id = id;
+                ViewBag.name = "id";
+                ViewBag.type = "Edit Invoice";
+                ViewBag.action = "/Invoice/UpdateEmployee";
+                int parse = int.Parse(id);
+                var invoice = entityOBJ.tbl_invoice
+                .Where(a => a.id == parse).ToList();
+                ViewBag.tableData = invoice;
+                var invoice_id = invoice[0].invoice_id;
+                if (invoice[0].acc_id== "custom")
+                {
+                    var custome = entityOBJ.tbl_custominvoice.Where(m => m.invoice_id == invoice_id).ToList();
+                    ViewBag.custome = custome;
+                }
+                return View();
+            }
+            else
+            {
+                ViewBag.tableData = null;
+                ViewBag.custome = null;
+                ViewBag.id = null;
+                ViewBag.name = null;
+                ViewBag.action = "/Invoice/getInvoice";
+                ViewBag.type = "Add Invoice";
+                return View();
+            }
         }
         public ActionResult SalesInvoiceView()
         {

@@ -1,154 +1,136 @@
 ﻿
 @{
-    ViewBag.Title = "ViewInvoice";
+    ViewBag.Title = "viewemployee";
 }
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
 <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
     <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Row -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="card card-outline-info">
                     <div class="card-header">
-                        <h4 class="m-b-0 text-white">Invoice List</h4>
+                        <h4 class="m-b-0 text-white">Invoice Details</h4>
                     </div>
                     <div class="card-body">
-                   
+                        <form role="form" method="get" action="#">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="row pl-4">
                                             <div><label>Search by : &nbsp;&nbsp;</label></div>
                                             <div>
-                                                <input type="text" name="empid" class="form-control" placeholder="ID" id="invoice_id">
+                                                <input type="text" name="empid" class="form-control" placeholder="ID">
                                             </div>
                                             <div>&nbsp;&nbsp;</div>
-                                            
+                                            <div>
+                                                <select>
+                                                    <option>Select Type</option>
+                                                    <option value="Sales">Sales</option>
+                                                    <option value="Purchase">Purchase</option>
+                                                </select>
+                                            </div>
                                             <div>&nbsp;&nbsp;</div>
-                                            <div><button class="btn btn-primary" type="button" style="height:30px;" onclick="search()">Search</button></div>
+                                            <div><button class="btn btn-primary" type="submit" style="height:30px;">Search</button></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row pl-2 pt-2">
                                 <form role="form" method="get" action="#">
-                                    <div class="table-responsive" >
-                                        <div class="table-responsive">
-                                            <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" style="cursor: pointer; width:99%;">
-                                                <thead>
-                                                    <tr>
-                                                        <th align="center">Sl No</th>
-                                                        <th>Invoice Id</th>
-                                                        <th>Account Type</th>
-                                                        <th>Type</th>
-                                                        <th>Account Id</th>
-                                                        <th>Remarks</th>
-                                                        <th>Depo</th>
-                                                        <th>Purchase Acc</th>
-                                                        <th>Date</th>
-                                                        <th>Party VNo</th>
-                                                        <th>Total Qty</th>
-                                                        <th>Total Gross</th>
-                                                        <th>Total Net</th>
-                                                        <th width="2%">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="table-responsive" style="height:300px; overflow-y:auto;">
+                                        <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" width:99%;">
+                                            <thead>
+                                                <tr>
+                                                    <th align="center">Sl No</th>
+                                                    <th>Invoice Id</th>
+                                                    <th>Account Type</th>
+                                                    <th>Type</th>
+                                                    <th>Remarks</th>
+                                                    <th>Depo</th>
+                                                    <th>Date</th>
+                                                    <th>Party VNo</th>
+                                                    <th>Total Qty</th>
+                                                    <th>Total Gross</th>
+                                                    <th>Total Net</th>
+                                                    <th width="2%">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               @{ int i = 1;}
+                                                @foreach (var data in ViewBag.data)
+                                                {
+                                                <tr>
+                                                    <td>@i</td>
+                                                    <td>@data.invoice_id</td>
+                                                    <td>@data.cash_party_acc</td>
+                                                    <td>@data.type</td>
+                                                    <td>@data.remarks</td>
+                                                    <td>@data.depot_loc</td>
+                                                    <td>@data.date</td>
+                                                    <td>@data.party_vno</td>
+                                                    <td>@data.tot_qty</td>
+
+                                                    <td>@data.tot_gross</td>
+                                                    <td>@data.tot_net</td>
+
+                                                    <td align="center">
+                                                        <a href="/Invoice/PurchaseInvoiceView?id=@data.id" data-toggle="tooltip" title="Edit"><i class="fas fa-user-edit"></i></a>                &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="Confirmation(@data.id)"><i class="fas fa-trash"></i></a>
+                                                        &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="Confirmation(@data.id)"><i class="fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
     </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    @*@include('layouts.footer')*@
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
 </div>
-
-<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-</script>
-
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            url: "/Invoice/getInvoiceList",
-            type: "POST",
-            dataType: "json",
-            success: function (data) {
-                var employeeTable = $('#mainTable tbody');
-                employeeTable.empty();
-                $(data).each(function (index, emp) {
-
-                      employeeTable.append('<tr><td>' + emp.id + '</td><td>'
-                        + emp.invoice_id + '</td><td>' + emp.cash_party_acc + '</td><td>' + emp.type
-                        + '</td><td>' + emp.acc_id + '</td><td>' + emp.remarks + '</td><td>' + emp.depot_loc + '</td><td>' + emp.purchase_acc + '</td><td>'
-                        + emp.date + '</td><td>' + emp.party_vno + '</td><td>' + emp.tot_qty + '</td><td>' + emp.tot_gross + '</td><td>'
-                        + emp.tot_net + '</td><td align="center" id="action"><i class="fas fa-caret-down" onclick="getProduct('
-                        + emp.id + ')"></i></td></tr><tr><td colspan="14" id ="product_' + emp.id + '"></td></tr>');
-                })
-                
-            },
-            error: function () {
-                alert('something went wrong !');
-            }
-        })
-    });
-    </script>
-
-<script>
-    function getProduct(id)
-    {
-        var url = '@Url.Action("LoadProducts", "Invoice")';
-        $('#product_' + id).load(url, { id: id });
-        var data = '<i class="fas fa-caret-up" onclick="getProduct('+ id + ')';
-        $("#action").html("<i class='fas fa-caret-up' onclick='hide("+id+")'></i>");
-    }
-</script>
-
-<script>
-    function hide(id)
-    {
-        $('#product_' + id).empty();
-        $("#action").html("<i class='fas fa-caret-down' onclick='getProduct(" + id + ")'></i>");
-    }
-</script>
-
-<script>
-    function search()
-    {
-        var id = $('#invoice_id').val();
-        if (id.length > 0)
-        {
-            $.ajax({
-                url: "/Invoice/getInvoiceListFilter",
-                type: "POST",
-                dataType: "json",
-                data: { id: id },
-                success: function (data) {
-                    var employeeTable = $('#mainTable tbody');
-                    employeeTable.empty();
-                    $(data).each(function (index, emp) {
-
-                        employeeTable.append('<tr><td>' + emp.id + '</td><td>'
-                          + emp.invoice_id + '</td><td>' + emp.cash_party_acc + '</td><td>' + emp.type
-                          + '</td><td>' + emp.acc_id + '</td><td>' + emp.remarks + '</td><td>' + emp.depot_loc + '</td><td>' + emp.purchase_acc + '</td><td>'
-                          + emp.date + '</td><td>' + emp.party_vno + '</td><td>' + emp.tot_qty + '</td><td>' + emp.tot_gross + '</td><td>'
-                          + emp.tot_net + '</td><td align="center" id="action"><i class="fas fa-caret-down" onclick="getProduct('
-                          + emp.id + ')"></i></td></tr><tr><td colspan="14" id ="product_' + emp.id + '"></td></tr>');
-                    })
-                },
-                error: function () {
-                    alert('something went wrong !');
-                }
-            })
-        }
-        else
-        {
-            alert("hello");
-        }
-    }
 </script>

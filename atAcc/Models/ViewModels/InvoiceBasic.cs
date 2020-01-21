@@ -18,6 +18,7 @@ namespace atAcc.Models.ViewModels
         public string depot_loc { get; set; }
         public string purchase_acc { get; set; }
         public DateTime date { get; set; }
+        public DateTime dateArabic { get; set; }
         public string party_vno { get; set; }
         public string spl_disc { get; set; }
         public string gst { get; set; }

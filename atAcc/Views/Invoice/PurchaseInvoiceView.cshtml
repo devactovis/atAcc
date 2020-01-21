@@ -38,18 +38,61 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Voucher</label>
+                                       <label>Voucher</label>
+                                       @if (ViewBag.tableData == null)
+                                       {
                                         <input class="select2 form-control" name="voucher" id="voucher" required>
+                                       }
+                                       else
+                                       {
+                                           foreach (var acc in ViewBag.tableData)
+                                           {
+                                            <input class="select2 form-control" name="voucher" id="voucher" value="@acc.invoice_id">
+                                           }
+
+                                       }
                                     </div>
                                     <div class="form-group">
                                         <label>Voucher in Arabic</label>
-                                        <input class="select2 form-control" name="voucherArabic" id="voucherArabic" required>
+                                        @if (ViewBag.tableData == null)
+                                        {
+                                            <input class="select2 form-control" name="voucherArabic" id="voucherArabic" required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.tableData)
+                                            {
+                                                <input class="select2 form-control" name="voucherArabic" id="voucherArabic" value="@acc.voucherArabic" required>
+                                            }
+
+                                        }
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Depot/Location</label>
-                                        <select class="select2 form-control custom-select" name="depotlocation" id="depotlocation" required>
-                                            <option value="Depo 1">Depo 1</option>
-                                            <option value="Depo 2">Depo 2</option>
+                                        <select class="select2 form-control custom-select" name="depotlocation" id="depotlocation"                  required>
+                                            @if (ViewBag.tableData == null)
+                                            {
+                                                <option value="Depo 1">Depo 1</option>
+                                                <option value="Depo 2">Depo 2</option>
+                                            }
+                                            else
+                                            {
+                                                foreach (var acc in ViewBag.tableData)
+                                                {
+                                                    if (acc.depot_loc == "Depo 2")
+                                                    {
+                                                        <option value="Depo 1">Depo 1</option>
+                                                        <option value="Depo 2" selected>Depo 2</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="Depo 1" selected>Depo 1</option>
+                                                        <option value="Depo 2">Depo 2</option>
+                                                    }
+                                                }
+
+                                            }
                                         </select>
                                     </div>
                                 </div>
@@ -57,30 +100,103 @@
                                     <div class="form-group">
                                         <label class="control-label">Cash/Party A/c</label>
                                         <select class="select2 form-control custom-select" name="cashpartyacc" id="cashpartyacc" required>
-                                            <option value="Cash">Cash</option>
-                                            <option value="Credit">Credit</option>
+                                            @if (ViewBag.tableData == null)
+                                            {
+                                                <option value="Cash">Cash</option>
+                                                <option value="Credit">Credit</option>
+                                            }
+                                            else
+                                            {
+                                                foreach (var acc in ViewBag.tableData)
+                                                {
+                                                    if (acc.depot_loc == "Cash")
+                                                    {
+                                                        <option value="Cash" selected>Cash</option>
+                                                        <option value="Credit">Credit</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="Cash">Cash</option>
+                                                        <option value="Credit" selected>Credit</option>
+                                                    }
+                                                }
+                                            } 
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Purchase A/c</label>
-                                        <input type="number" name="purchaseacc" id="purchaseacc" class="form-control" required>
+                                        @if (ViewBag.tableData == null)
+                                        {
+                                            <input type="number" name="purchaseacc" id="purchaseacc" class="form-control" required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.tableData)
+                                            {
+                                                <input type="number" name="purchaseacc" id="purchaseacc" class="form-control" value="@acc.cash_party_acc">
+                                            }
+
+                                        }
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Type</label>
                                         <select class="select2 form-control custom-select" name="type" id="type" required>
-                                            <option value="Purchase">Purchase</option>
-                                            <option value="Sales">Sales</option>
+                                            @if (ViewBag.tableData == null)
+                                            {
+                                                <option value="Purchase">Purchase</option>
+                                                <option value="Sales">Sales</option>
+                                            }
+                                            else
+                                            {
+                                                foreach (var acc in ViewBag.tableData)
+                                                {
+                                                    if (acc.depot_loc == "Purchase")
+                                                    {
+                                                        <option value="Purchase" selected>Purchase</option>
+                                                        <option value="Sales">Sales</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="Purchase">Purchase</option>
+                                                        <option value="Sales" selected>Sales</option>
+                                                    }
+                                                }
+                                            } 
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Date</label>
-                                        <input type="date" name="date" id="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                                        @if (ViewBag.tableData == null)
+                                        {
+                                            <input type="date" name="date" id="date" class="form-control" placeholder="dd/mm/yyyy" value="2013-01-08" required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.tableData)
+                                            {
+                                                <input type="date" name="date" id="date" class="form-control" placeholder="dd/mm/yyyy" required value="2020-01-17">
+                                            }
+
+                                        }
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label>Date in Arabic</label>
-                                        <input type="text" name="dateArabic" id="dateArabic" class="form-control"  required>
+                                        @if (ViewBag.tableData == null)
+                                        {
+                                            <input type="text" name="dateArabic" id="dateArabic" class="form-control" required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.tableData)
+                                            {
+                                                <input type="text" name="dateArabic" id="dateArabic" class="form-control" required value="@acc.dateArabic">
+                                            }
+                                        }
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -89,16 +205,25 @@
                                         <select class="select2 form-control custom-select" name="accid" id="accid" onchange="checkacc()">
                                             @foreach (var acc in ViewBag.data)
                                             {
-                                                <option value="@acc.id">@acc.ledger_name</option>
+                                                <option value="@acc.id" if (ViewBag.tableData.acc_id == @acc.id) { selected } >@acc.ledger_name</option>
                                             }
                                             <option value="custom">Custom</option>
                                         </select>
-                                        
-                                        @*<input type="number" name="accid" id="accid" class="form-control" required>*@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Party Name</label>
-                                        <input type="text" name="partyname" id="partyname" class="form-control" disabled required>
+                                        @if (ViewBag.custome == null)
+                                        {
+                                            <input type="text" name="partyname" id="partyname" class="form-control" disabled required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.custome)
+                                            {
+                                                <input type="text" name="partyname" id="partyname" class="form-control"  value ="@acc.party_name" required>
+                                            }
+                                        }
+                                        
                                     </div>
                                     
                                 </div>
@@ -109,11 +234,31 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Party's V no</label>
-                                        <input type="number" name="partyvno" id="partyvno" class="form-control" disabled required>
+                                        @if (ViewBag.custome == null)
+                                        {
+                                            <input type="text" name="partyvno" id="partyvno" class="form-control" disabled required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.custome)
+                                            {
+                                                <input type="text" name="partyvno" id="partyvno" class="form-control" value="@acc.party_vno" required>
+                                            }
+                                        }
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Party Name Arabic</label>
-                                        <input type="text" name="partynamearabic" id="partynamearabic" class="form-control" disabled required>
+                                        @if (ViewBag.custome == null)
+                                        {
+                                            <input type="text" name="partynamearabic" id="partynamearabic" class="form-control" disabled required>
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.custome)
+                                            {
+                                                <input type="text" name="partynamearabic" id="partynamearabic" class="form-control" value="@acc.party_namearabic" required>
+                                            }
+                                        }
                                     </div>
                                 </div>
                             </div>
