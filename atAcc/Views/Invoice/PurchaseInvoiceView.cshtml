@@ -4,12 +4,12 @@
 }
 <style>
     .ui-autocomplete {
-    max-height: 600px;
-    overflow-y: auto;   /* prevent horizontal scrollbar */
-    overflow-x: auto; /* add padding to account for vertical scrollbar */
-    z-index:1000 !important;
-    position: relative;
-}
+        max-height: 600px;
+        overflow-y: auto; /* prevent horizontal scrollbar */
+        overflow-x: auto; /* add padding to account for vertical scrollbar */
+        z-index: 1000 !important;
+        position: relative;
+    }
 </style>
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
@@ -38,19 +38,23 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                       <label>Voucher</label>
-                                       @if (ViewBag.tableData == null)
-                                       {
-                                        <input class="select2 form-control" name="voucher" id="voucher" required>
-                                       }
-                                       else
-                                       {
-                                           foreach (var acc in ViewBag.tableData)
-                                           {
-                                            <input class="select2 form-control" name="voucher" id="voucher" value="@acc.invoice_id">
-                                           }
+                                        <label>Voucher</label>
+                                        @if (ViewBag.tableData == null)
+                                        {
+                                            <input class="select2 form-control" name="voucher" id="voucher" required>
+                                            <input type="hidden" id="actionType" value="insert">
+                                            <input type="hidden" id="id" value="">
+                                        }
+                                        else
+                                        {
+                                            foreach (var acc in ViewBag.tableData)
+                                            {
+                                                <input type="hidden" id="actionType" value="update">
+                                                <input type="hidden" id="id" value="@acc.id">
+                                                <input class="select2 form-control" name="voucher" id="voucher" value="@acc.invoice_id">
+                                            }
 
-                                       }
+                                        }
                                     </div>
                                     <div class="form-group">
                                         <label>Voucher in Arabic</label>
@@ -66,11 +70,11 @@
                                             }
 
                                         }
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Depot/Location</label>
-                                        <select class="select2 form-control custom-select" name="depotlocation" id="depotlocation"                  required>
+                                        <select class="select2 form-control custom-select" name="depotlocation" id="depotlocation" required>
                                             @if (ViewBag.tableData == null)
                                             {
                                                 <option value="Depo 1">Depo 1</option>
@@ -99,7 +103,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Cash/Party A/c</label>
-                                        <select class="select2 form-control custom-select" name="cashpartyacc" id="cashpartyacc" required>
+                                        <select class="select2 form-control custom-select" name="cashpartyacc" id="cashpartyacc"  onchange="checkPayment()" required>
                                             @if (ViewBag.tableData == null)
                                             {
                                                 <option value="Cash">Cash</option>
@@ -120,9 +124,23 @@
                                                         <option value="Credit" selected>Credit</option>
                                                     }
                                                 }
-                                            } 
+                                            }
                                         </select>
                                     </div>
+
+                                    <div class="form-group" style="display:none" id="selectdate">
+                                        <label class="control-label" id="customeLabel">Cash/Party A/c</label>
+                                        <select class="select2 form-control custom-select" name="cashpartyacc" id="cashDueDate"  onchange="checkDate()"required>
+                                            <option disabled>select due date</option>
+                                            <option value="10">10 Days</option>
+                                            <option value="15">15 Days</option>
+                                            <option value="20">20 Days</option>
+                                            <option value="30">30 Days</option>
+                                            <option value="custome">Custome</option>
+                                        </select>
+                                        <input type="text" class="cashpartyacca" name="cashpartyacc" id="cashDueDate" style="display:none"/>
+                                    </div>
+
                                     <div class="form-group">
                                         <label class="control-label">Purchase A/c</label>
                                         @if (ViewBag.tableData == null)
@@ -137,7 +155,7 @@
                                             }
 
                                         }
-                                        
+
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -164,7 +182,7 @@
                                                         <option value="Sales" selected>Sales</option>
                                                     }
                                                 }
-                                            } 
+                                            }
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -181,7 +199,7 @@
                                             }
 
                                         }
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label>Date in Arabic</label>
@@ -196,7 +214,7 @@
                                                 <input type="text" name="dateArabic" id="dateArabic" class="form-control" required value="@acc.dateArabic">
                                             }
                                         }
-                                        
+
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -205,7 +223,7 @@
                                         <select class="select2 form-control custom-select" name="accid" id="accid" onchange="checkacc()">
                                             @foreach (var acc in ViewBag.data)
                                             {
-                                                <option value="@acc.id" if (ViewBag.tableData.acc_id == @acc.id) { selected } >@acc.ledger_name</option>
+                                                <option value="@acc.id" if (ViewBag.tableData.acc_id= =@acc.id ) { selected }>@acc.ledger_name</option>
                                             }
                                             <option value="custom">Custom</option>
                                         </select>
@@ -220,17 +238,17 @@
                                         {
                                             foreach (var acc in ViewBag.custome)
                                             {
-                                                <input type="text" name="partyname" id="partyname" class="form-control"  value ="@acc.party_name" required>
+                                                <input type="text" name="partyname" id="partyname" class="form-control" value="@acc.party_name" required>
                                             }
                                         }
-                                        
+
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Remarks</label>
-                                        <input type="text" name="remarks" id="remarks" class="form-control"  required>
+                                        <input type="text" name="remarks" id="remarks" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Party's V no</label>
@@ -293,8 +311,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th width="4%">Sl No</th>
-                                                        <th width="5%">Code</th width="30px">
-                                                        <th width="10%">Product Name</th width="30px">
+                                                        <th width="5%">Code</th>
+                                                        <th width="10%">Product Name</th>
                                                         <th width="5%">Quantity</th>
                                                         <th width="7%">Amount</th>
                                                         <th width="6%">Spl Disc %</th>
@@ -308,28 +326,30 @@
                                                         <th width="4%">VAT</th>
                                                         <th width="8%">MRP</th>
                                                         <th width="12%">HSN Code</th>
-                                                    
+                                                        <th align="center">Action</th>
+
                                                 </thead>
                                                 <tbody>
-                                                    @if (ViewBag.custome == null)
+                                                    @if (ViewBag.products == null)
                                                     {
-                                                        <tr>
+                                                        <tr id="row_1">
                                                             <td><span id='snum'>1.</span></td>
                                                             <td id="append"><input type='text' id='product_code_1' name='code[]' onclick='autoComplete(1)' size="2" /></td>
-                                                            <td><input type='text' id='product_name1' name='product_name[]' style="width:100%" /></td>
-                                                            <td><input type='text' id='quantity1' name='quantity[]' onkeyup="Alter(1)" size="2" value="" /></td>
-                                                            <td><input type='text' id='amount1' name='amount[]' size="2" value="" /></td>
-                                                            <td><input type='text' id='spl_discpercent1' name='spl_discpercent[]' onkeyup="Alter(1)" size="2" /> </td>
-                                                            <td><input type='text' id='spl_disc1' name='spl_disc[]' size="2" /></td>
-                                                            <td><input type='text' id='add_disc1' name='add_disc[]' size="2" /></td>
-                                                            <td><input type='text' id='total_tax1' name='total_tax[]' size="3" /></td>
-                                                            <td><input type='text' id='tax_prcnt1' name='tax_prcnt[]' size="3" /></td>
-                                                            <td><input type='text' id='net_amt1' name='net_amt[]' size="2" class="net_amount" /> </td>
-                                                            <td><input type='text' id='gst_percent1' name='gst_percent[]' size="2" /></td>
-                                                            <td><input type='text' id='discount1' name='discount[]' size="3" /> </td>
-                                                            <td><input type='text' id='gst1' name='gst[]' size="2" /></td>
-                                                            <td><input type='text' id='mrp1' name='mrp[]' size="2" /></td>
-                                                            <td><input type='text' id='imeno1' name='imeno[]' size="2" /> </td>
+                                                            <td><input type='text' id='product_name_1' name='product_name[]' style="width:100%" /></td>
+                                                            <td><input type='text' id='quantity_1' name='quantity[]' onkeyup="Alter(1)" size="2" value="" /></td>
+                                                            <td><input type='text' id='amount_1' name='amount[]' size="2" value="" /></td>
+                                                            <td><input type='text' id='spl_discpercent_1' name='spl_discpercent[]' onkeyup="Alter(1)" size="2" /> </td>
+                                                            <td><input type='text' id='spl_disc_1' name='spl_disc[]' size="2" /></td>
+                                                            <td><input type='text' id='add_disc_1' name='add_disc[]' size="2" /></td>
+                                                            <td><input type='text' id='total_tax_1' name='total_tax[]' size="3" /></td>
+                                                            <td><input type='text' id='tax_prcnt_1' name='tax_prcnt[]' size="3" /></td>
+                                                            <td><input type='text' id='net_amt_1' name='net_amt[]' size="2" class="net_amount" /> </td>
+                                                            <td><input type='text' id='gst_percent_1' name='gst_percent[]' size="2" /></td>
+                                                            <td><input type='text' id='discount_1' name='discount[]' size="3" /> </td>
+                                                            <td><input type='text' id='gst_1' name='gst[]' size="2" /></td>
+                                                            <td><input type='text' id='mrp_1' name='mrp[]' size="2" /></td>
+                                                            <td><input type='text' id='imeno_1' name='imeno[]' size="2" /> </td>
+                                                            <td><a href="#" data-toggle="tooltip" title="Delete" onclick="remove(1)"><i class="fas fa-trash"></i></a></td>
                                                         </tr>
                                                     }
                                                     else
@@ -338,28 +358,29 @@
                                                         foreach (var acc in ViewBag.products)
                                                         {
 
-                                                            <tr>
-                                                                <td><span id='snum'>1.</span></td>
-                                                                <td id="append"><input type='text' id='product_code_@i' name='code[]' onclick='autoComplete(@i)' size="2" value="@acc.code"/></td>
-                                                                <td><input type='text' id='product_name_@i' name='product_name[]' style="width:100%" value="@acc.product_name"/></td>
+                                                            <tr id="row_@i">
+                                                                <td><span id='snum'>@i</span></td>
+                                                                <td id="append"><input type='text' id='product_code_@i' name='code[]' onclick='autoComplete(@i)' size="2" value="@acc.code" /></td>
+                                                                <td><input type='text' id='product_name_@i' name='product_name[]' style="width:100%" value="@acc.product_name" /></td>
                                                                 <td><input type='text' id='quantity_@i' name='quantity[]' onkeyup="Alter(1)" size="2" value="@acc.quantity" /></td>
                                                                 <td><input type='text' id='amount_@i' name='amount[]' size="2" value="@acc.amount" /></td>
-                                                                <td><input type='text' id='spl_discpercent_@i' name='spl_discpercent[]' onkeyup="Alter(1)" size="2" value="@acc.spl_per"/> </td>
-                                                                <td><input type='text' id='spl_disc_@i' name='spl_disc[]' size="2" value="@acc.spl_disc"/></td>
-                                                                <td><input type='text' id='add_disc_@i' name='add_disc[]' size="2" value="@acc.addl_disc"/></td>
-                                                                <td><input type='text' id='total_tax_@i' name='total_tax[]' size="3" value="@acc.total_tax"/></td>
-                                                                <td><input type='text' id='tax_prcnt_@i' name='tax_prcnt[]' size="3" value="@acc.product_name"/></td>
-                                                                <td><input type='text' id='net_amt_@i' name='net_amt[]' size="2" class="net_amount" value="@acc.net_amt"/> </td>
-                                                                <td><input type='text' id='gst_percent_@i' name='gst_percent[]' size="2" value="@acc.gst_per"/></td>
-                                                                <td><input type='text' id='discount_@i' name='discount[]' size="3" value="@acc.discount"/> </td>
-                                                                <td><input type='text' id='gst_@i' name='gst[]' size="2" value="@acc.gst"/></td>
-                                                                <td><input type='text' id='mrp_@i' name='mrp[]' size="2" value="@acc.mrp"/></td>
-                                                                <td><input type='text' id='imeno_@i' name='imeno[]' size="2" value="@acc.imeno"/> </td>
+                                                                <td><input type='text' id='spl_discpercent_@i' name='spl_discpercent[]' onkeyup="Alter(1)" size="2" value="@acc.spl_per" /> </td>
+                                                                <td><input type='text' id='spl_disc_@i' name='spl_disc[]' size="2" value="@acc.spl_disc" /></td>
+                                                                <td><input type='text' id='add_disc_@i' name='add_disc[]' size="2" value="@acc.addl_disc" /></td>
+                                                                <td><input type='text' id='total_tax_@i' name='total_tax[]' size="3" value="@acc.total_tax" /></td>
+                                                                <td><input type='text' id='tax_prcnt_@i' name='tax_prcnt[]' size="3" value="@acc.product_name" /></td>
+                                                                <td><input type='text' id='net_amt_@i' name='net_amt[]' size="2" class="net_amount" value="@acc.net_amt" /> </td>
+                                                                <td><input type='text' id='gst_percent_@i' name='gst_percent[]' size="2" value="@acc.gst_per" /></td>
+                                                                <td><input type='text' id='discount_@i' name='discount[]' size="3" value="@acc.discount" /> </td>
+                                                                <td><input type='text' id='gst_@i' name='gst[]' size="2" value="@acc.gst" /></td>
+                                                                <td><input type='text' id='mrp_@i' name='mrp[]' size="2" value="@acc.mrp" /></td>
+                                                                <td><input type='text' id='imeno_@i' name='imeno[]' size="2" value="@acc.imeno" /> </td>
+                                                                <td><a href="#" data-toggle="tooltip" title="Delete" onclick="remove(@i)"><i class="fas fa-trash"></i></a></td>
                                                             </tr>
                                                             i++;
                                                         }
                                                     }
-                                                    
+
                                                 </tbody>
                                             </table>
                                             <button type="button" class='addmore btn-admore'>+ Add More</button>
@@ -516,40 +537,75 @@
                             <form role="form" method="post" action="#">
                                 <div class="col-md-6 pull-left">
                                     <div class="row">
-                                        
+
                                     </div>
                                 </div>
                             </form>
                             <div class="col-md-2 pull-right">
-                               
-                                    <div class="row pull-right">
-                                        <div><label for="validationDefault04">Total.Qty: &nbsp</label></div>
-                                        <div> <label id="net_total_quantity">0 </label></div>
-                                        <div><label>&nbsp|&nbsp</label> </div>
-                                        
-                                        <div> </div>
-                                        <div><label for="validationDefault04"> Net Total: &nbsp</label></div>
-                                        <div> <b><label id="net_total"> 0&nbsp &nbsp</label></b></div>
-                                    </div>
+
                                 <div class="row pull-right">
-                                    <h3 style="font-size:1.5rem">GRAND TOTAL : <b><span id="grand_total">0</span></b></h3>
+                                    <div><label for="validationDefault04">Total.Qty: &nbsp</label></div>
+                                    <div>
+                                        <label id="net_total_quantity">
+                                            @if (ViewBag.tableData != null)
+                                        {
+
+                                            foreach (var tableproduct in ViewBag.tableData)
+                                            {
+                                                @tableproduct.tot_qty;
+                                            }
+                                        }
+                                    </label>
+                                </div>
+                                <div><label>&nbsp|&nbsp</label> </div>
+
+                                <div> </div>
+                                <div><label for="validationDefault04"> Net Total: &nbsp</label></div>
+                                <div>
+                                    <b>
+                                        <label id="net_total"> 0&nbsp &nbsp</label>@if (ViewBag.tableData != null)
+                                        {
+
+                                            foreach (var tableproduct in ViewBag.tableData)
+                                            {
+                                                @tableproduct.tot_qty;
+                                            }
+                                        }
+                                    </b>
                                 </div>
                             </div>
+                            <div class="row pull-right">
+                                <h3 style="font-size:1.5rem">
+                                    GRAND TOTAL : <b>
+                                        <span id="grand_total">
+                                            @if (ViewBag.tableData != null)
+                                        {
+
+                                            foreach (var tableproduct in ViewBag.tableData)
+                                            {
+                                                @tableproduct.tot_qty;
+                                            }
+                                        }
+                                    </span>
+                                </b>
+                            </h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <button id="purchase_save" class="btn btn-primary">Save</button>
-                <button id="purchase_save_table" class="btn btn-primary">Save table</button>
-                <button class="btn btn-primary" type="submit">Clear</button>
-                <button class="btn btn-primary" type="submit">Close</button>
-            </div>
-            
-        </div>
     </div>
+</div>
+<div class="row">
+    <div class="col">
+        <button id="purchase_save" class="btn btn-primary">Save</button>
+        <button id="purchase_save_table" class="btn btn-primary">Save table</button>
+        <button class="btn btn-primary" type="submit">Clear</button>
+        <button class="btn btn-primary" type="submit">Close</button>
+    </div>
+
+</div>
+</div>
 </div>
 <script src="~/assets/plugins/jquery/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -605,7 +661,7 @@ google.load("elements", "1", {packages: "transliteration"});
             var control = new google.elements.transliteration.TransliterationControl(options);
             control.makeTransliteratable(["dateArabic"]);
             var engText = $("#date").val() + " ";
-            
+
             var engTextArray = engText.split(" ");
             $("#dateArabic").val($("#dateArabic").val() + engTextArray[engTextArray.length - 2]);
             document.getElementById("dateArabic").focus();
@@ -618,9 +674,9 @@ google.load("elements", "1", {packages: "transliteration"});
     });
 } //end onLoad function
 google.setOnLoadCallback(OnLoad);
-</script> 
+</script>
 <script>
-    var i = 2; 
+    var i = 2;
     function autoComplete(id) {
         $("#product_code_" + id).autocomplete({
             source: function (request, response) {
@@ -649,20 +705,20 @@ google.setOnLoadCallback(OnLoad);
                     data: { id: productcode },
                     success: function (data) {
                         $.each(data, function (i, product) {
-                            $('#product_name' + id).val(product["products"].product_name)
-                            $('#quantity' + id).val('0')
-                            $('#amount' + id).val('0')
-                            $('#spl_discpercent' + id).val('0')
-                            $('#spl_disc' + id).val('0')
-                            $('#add_disc' + id).val('0')
-                            $('#total_tax' + id).val('0')
-                            $('#tax_prcnt' + id).val(product.taxprcnt)
-                            $('#net_amt' + id).val('0')
-                            $('#gst_percent' + id).val('0')
-                            $('#discount' + id).val('0')
-                            $('#gst' + id).val('0')
-                            $('#mrp' + id).val(product["products"].mrp)
-                            $('#imeno' + id).val(product["products"].hsn_code)
+                            $('#product_name_' + id).val(product["products"].product_name)
+                            $('#quantity_' + id).val('0')
+                            $('#amount_' + id).val('0')
+                            $('#spl_discpercent_' + id).val('0')
+                            $('#spl_disc_' + id).val('0')
+                            $('#add_disc_' + id).val('0')
+                            $('#total_tax_' + id).val('0')
+                            $('#tax_prcnt_' + id).val(product.taxprcnt)
+                            $('#net_amt_' + id).val('0')
+                            $('#gst_percent_' + id).val('0')
+                            $('#discount_' + id).val('0')
+                            $('#gst_' + id).val('0')
+                            $('#mrp_' + id).val(product["products"].mrp)
+                            $('#imeno_' + id).val(product["products"].hsn_code)
                         });
                     },
                     error: function (xhr, status, error) {
@@ -693,7 +749,7 @@ google.setOnLoadCallback(OnLoad);
     function checkacc() {
         var accvalue = $('#accid').val();
         if (accvalue == 'custom') {
-            $("#partyname").removeAttr('disabled'); 
+            $("#partyname").removeAttr('disabled');
             $("#partynamearabic").removeAttr('disabled');
             $("#partyvno").removeAttr('disabled');
         } else {
@@ -705,39 +761,46 @@ google.setOnLoadCallback(OnLoad);
     function Alter(id) {
         var net_tot = 0;
         var total_qunatity = 0;
-            var amount = $('#amount' + id).val();
-            var qty = $('#quantity' + id).val();
-            var tax_prcnt = $('#tax_prcnt' + id).val();
-            var rate = $('#mrp' + id).val();
+            var amount = $('#amount_' + id).val();
+            var qty = $('#quantity_' + id).val();
+            var tax_prcnt = $('#tax_prcnt_' + id).val();
+            var rate = $('#mrp_' + id).val();
             total = qty * rate;
-            
-            var spl_disc_prcnt = $('#spl_discpercent' + id).val();
+
+            var spl_disc_prcnt = $('#spl_discpercent_' + id).val();
             var discount = (amount * spl_disc_prcnt) / 100;
-            
-            $('#spl_disc' + id).val(discount);
-            $('#amount' + id).val(total);
+
+            $('#spl_disc_' + id).val(discount);
+            $('#amount_' + id).val(total);
             var taxvalue = (total * parseInt(tax_prcnt)) / 100;
-            $('#total_tax' + id).val(taxvalue);
-            $('#net_amt' + id).val(total - discount + taxvalue);
+            $('#total_tax_' + id).val(taxvalue);
+            $('#net_amt_' + id).val(total - discount + taxvalue);
            // $('#net_total').html(total - discount);
             $('.net_amount').each((index, element) => {
                 var h = index + 1;
-                var fetch = parseFloat($('#net_amt' + h).val());
+                var fetch = parseFloat($('#net_amt_' + h).val());
                 net_tot = parseFloat(net_tot) + fetch;
-                var fetch_quantity = parseFloat($('#quantity' + h).val());
+                var fetch_quantity = parseFloat($('#quantity_' + h).val());
                 total_qunatity = parseFloat(total_qunatity) + fetch_quantity;
-            }); 
+            });
             $('#net_total_quantity').html(total_qunatity + " ");
             $('#net_total').html(net_tot);
             $('#grand_total').html(net_tot);
     }
     $(".addmore").on('click', function () {
-        count = $('table tr').length;
-        var data = "<tr><td><span id='snum" + i + "'>" + i + ".</span></td>";
-        data += "<td><input type='text' id='product_code_" + i + "' size=\"2\" name='code[]' size=\"2\" onclick='autoComplete(" + i + ")' /></td><td><input type='text' id='product_name" + i + "' name='product_name[]' size=\"3\" /></td><td><input type='text' id='quantity" + i + "' name='quantity[]' onkeyup='Alter(" + i + ")' size=\"2\" /></td><td><input type='text' id='amount" + i + "' name='amount[]' size=\"2\" /></td><td><input type='text' id='spl_discpercent" + i + "' name='spl_discpercent[]' onkeyup='Alter(" + i + ")' size=\"2\" /> </td><td><input type='text' id='spl_disc" + i + "' name='spl_disc[]' size=\"2\" /></td><td><input type='text' id='add_disc" + i + "' name='add_disc[]' size=\"2\" /></td><td><input type='text' id='total_tax" + i + "' name='total_tax[]' size=\"3\" /></td><td><input type='text' id='tax_prcnt" + i + "' name='tax_prcnt[]' size=\"3\" /></td><td><input type='text' id='net_amt" + i + "' name='net_amt[]' size=\"2\" class='net_amount'/> </td><td><input type='text' id='gst_percent" + i + "' name='gst_percent[]' size=\"2\" /></td><td><input type='text' id='discount" + i + "' name='discount[]' size=\"3\" /> </td><td><input type='text' id='gst" + i + "' name='gst[]' size='2'></td><td><input type='text' id='mrp" + i + "' name='mrp[]' size=\"2\" /></td>><td><input type='text' id='imeno" + i + "' name='imeno[]' size=\"2\" /> </td></tr>";
+        count = $('#productstable tr').length;
+        var i=count;
+        var data = "<tr id='row_"+i+"'><td><span id='snum" + i + "'>" + i + ".</span></td>";
+        data += "<td><input type='text' id='product_code_" + i + "' size=\"2\" name='code[]' size=\"2\" onclick='autoComplete(" + i + ")' /></td><td><input type='text' id='product_name_" + i + "' name='product_name[]' size=\"3\" /></td><td><input type='text' id='quantity_" + i + "' name='quantity[]' onkeyup='Alter(" + i + ")' size=\"2\" /></td><td><input type='text' id='amount_" + i + "' name='amount[]' size=\"2\" /></td><td><input type='text' id='spl_discpercent_" + i + "' name='spl_discpercent[]' onkeyup='Alter(" + i + ")' size=\"2\" /> </td><td><input type='text' id='spl_disc_" + i + "' name='spl_disc[]' size=\"2\" /></td><td><input type='text' id='add_disc_" + i + "' name='add_disc[]' size=\"2\" /></td><td><input type='text' id='total_tax_" + i + "' name='total_tax[]' size=\"3\" /></td><td><input type='text' id='tax_prcnt_" + i + "' name='tax_prcnt[]' size=\"3\" /></td><td><input type='text' id='net_amt_" + i + "' name='net_amt[]' size=\"2\" class='net_amount'/> </td><td><input type='text' id='gst_percent_" + i + "' name='gst_percent[]' size=\"2\" /></td><td><input type='text' id='discount_" + i + "' name='discount[]' size=\"3\" /> </td><td><input type='text' id='gst_" + i + "' name='gst[]' size='2'></td><td><input type='text' id='mrp_" + i + "' name='mrp[]' size=\"2\" /></td>><td><input type='text' id='imeno_" + i + "' name='imeno[]' size=\"2\" /> </td> <td><a href='#' data-toggle='tooltip' title='Delete'  onclick='remove(" + i + ")'><i class='fas fa-trash'></i></a></td></tr>";
         $('#productstable').append(data);
         i++;
     });
+</script>
+<script>
+    function remove(id)
+    {
+        $("#row_"+id).remove();
+    }
 </script>
 <style>
     td {

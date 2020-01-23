@@ -33,53 +33,62 @@
                         <h4 class="m-b-0 text-white">Invoice Details</h4>
                     </div>
                     <div class="card-body">
-                        <form role="form" method="get" action="#">
+                        <form role="form" method="post" action="ViewInvoice" style="width: 100%;">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="row pl-4">
                                             <div><label>Search by : &nbsp;&nbsp;</label></div>
                                             <div>
-                                                <input type="text" name="empid" class="form-control" placeholder="ID">
+                                                <input type="text" name="invoice_id" class="form-control" placeholder="Invoice Id" id="invoice_id">
                                             </div>
                                             <div>&nbsp;&nbsp;</div>
-                                            <div>
-                                                <select>
-                                                    <option>Select Type</option>
+                                            <div> 
+                                                <select class="form-control" name="invoice_type">
+                                                    <option value="0">Select Type</option>
                                                     <option value="Sales">Sales</option>
                                                     <option value="Purchase">Purchase</option>
                                                 </select>
                                             </div>
                                             <div>&nbsp;&nbsp;</div>
-                                            <div><button class="btn btn-primary" type="submit" style="height:30px;">Search</button></div>
+                                            <div>
+                                                <input type="date" class="form-control" name="invoice_start"/>
+                                            </div>
+                                            <div>&nbsp;&nbsp;</div>
+                                            <div>
+                                                <input type="date" class="form-control"  name="invoice_end"/>
+                                            </div>
+                                            <div>&nbsp;&nbsp;</div>
+                                            <div><button class="btn btn-primary" type="submit" style="height:30px;" onclick="searchInvoice()">Search</button></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row pl-2 pt-2">
-                                <form role="form" method="get" action="#">
-                                    <div class="table-responsive" style="height:300px; overflow-y:auto;">
-                                        <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" width:99%;">
-                                            <thead>
-                                                <tr>
-                                                    <th align="center">Sl No</th>
-                                                    <th>Invoice Id</th>
-                                                    <th>Account Type</th>
-                                                    <th>Type</th>
-                                                    <th>Remarks</th>
-                                                    <th>Depo</th>
-                                                    <th>Date</th>
-                                                    <th>Party VNo</th>
-                                                    <th>Total Qty</th>
-                                                    <th>Total Gross</th>
-                                                    <th>Total Net</th>
-                                                    <th width="2%">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                               @{ int i = 1;}
-                                                @foreach (var data in ViewBag.data)
-                                                {
+                            </form>
+                        <div class="row pl-2 pt-2">
+                            <form role="form" method="get" action="#" style="width: 100%;">
+                                <div class="table-responsive" style="height:300px; overflow-y:auto;">
+                                    <table id="mainTable" class="table editable-table table-bordered table-striped m-b-0" width:99%;">
+                                        <thead>
+                                            <tr>
+                                                <th align="center">Sl No</th>
+                                                <th>Invoice Id</th>
+                                                <th>Account Type</th>
+                                                <th>Type</th>
+                                                <th>Remarks</th>
+                                                <th>Depo</th>
+                                                <th>Date</th>
+                                                <th>Party VNo</th>
+                                                <th>Total Qty</th>
+                                                <th>Total Gross</th>
+                                                <th>Total Net</th>
+                                                <th width="2%">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int i = 1;}
+                                            @foreach (var data in ViewBag.data)
+                                            {
                                                 <tr>
                                                     <td>@i</td>
                                                     <td>@data.invoice_id</td>
@@ -95,16 +104,19 @@
                                                     <td>@data.tot_net</td>
 
                                                     <td align="center">
-                                                        <a href="/Invoice/PurchaseInvoiceView?id=@data.id" data-toggle="tooltip" title="Edit"><i class="fas fa-user-edit"></i></a>                &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="Confirmation(@data.id)"><i class="fas fa-trash"></i></a>
-                                                        &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="Confirmation(@data.id)"><i class="fas fa-trash"></i></a>
+                                                        <a href="/Invoice/PurchaseInvoiceView?id=@data.id" data-toggle="tooltip" title="Edit"><i class="fas fa-user-edit"></i></a>                &nbsp; <a href="" data-toggle="tooltip" title="Delete" onclick="ConfirmationForAll(@data.id,'DeleteInvoice')"><i class="fas fa-trash"></i></a>
+                                                        &nbsp; <a href="~/Invoice/print?id=@data.id" data-toggle="tooltip" title="Delete"><i class="far fa-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                            </div>
-                        </form>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

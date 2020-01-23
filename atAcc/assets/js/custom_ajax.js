@@ -92,6 +92,37 @@ function Confirmation(value) {
     }
 }
 
+function ConfirmationForAll(value,url)
+{
+    var Val = confirm("Do you want to continue ?");
+    if (Val == true) {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: url,
+            data: { value: value},
+            success: function (data) {
+                if (data == "success") {
+                    location.reload();
+                }
+                else {
+                    alert("failed");
+                }
+            },
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
+        });
+    }
+    else {
+        document.write("NOT CONTINUED!");
+        return false;
+    }
+    alert(url);
+}
+
+
 function clear() {
     alert("hello");
     $('#myform')[0].reset();

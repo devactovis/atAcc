@@ -30,5 +30,7 @@ namespace atAcc.Models.ViewModels
         public string tot_net { get; set; }
         public string party_name { get; set; }
         public string party_namearabic { get; set; }
+
+        public string actionType { get; set; }
     }
 }

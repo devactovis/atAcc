@@ -19,8 +19,34 @@ namespace atAcc.Controllers
         }
         public ActionResult ViewInvoice()
         {
-            var data = entityOBJ.tbl_invoice.ToList();
-            ViewBag.data = data;
+            string invoice_id = Request["invoice_id"];   
+            string invoice_type = Request["invoice_type"];
+            string invoice_start = Request["invoice_start"];
+            string invoice_end = Request["invoice_end"];
+            if (invoice_end == null || invoice_id == null || invoice_start==null || invoice_end == null)
+            {
+                var data = entityOBJ.tbl_invoice.ToList();
+                ViewBag.data = data;
+            }
+            else
+            {
+                var query = entityOBJ.tbl_invoice.Where(a => a.id >= 1);
+                if (invoice_id !="")
+                {
+                    query = query.Where(a => a.invoice_id == invoice_id);
+                }
+                if (invoice_type != "0")
+                {
+                    query = query.Where(a => a.type == invoice_type);
+                }
+                if (invoice_start != ""  && invoice_end!= "")
+                {
+                    query = query.Where(a => a.date>=Convert.ToDateTime(invoice_start) && a.date<= Convert.ToDateTime(invoice_end));
+                }
+                var data = query.ToList();
+                ViewBag.data = data;
+            }
+            
             return View();
         }
         public ActionResult PurchaseInvoiceView()
@@ -72,7 +98,27 @@ namespace atAcc.Controllers
         {
             return View();
         }
+        public JsonResult DeleteInvoice(string value)
+        {
+            string status;
+            int id = Convert.ToInt32(value);
+            string idint = value;
+            var singleRec = entityOBJ.tbl_invoice.FirstOrDefault(x => x.id == id);
+            entityOBJ.tbl_invoice.Remove(singleRec);
 
+            List<tbl_purchaseInvoice> deps = entityOBJ.tbl_purchaseInvoice.Where(x => x.invoice_id == idint).ToList();
+            entityOBJ.tbl_purchaseInvoice.RemoveRange(deps);
+            entityOBJ.SaveChanges();
+            if (entityOBJ.SaveChanges() > 0)
+            {
+                status = "success";
+            }
+            else
+            {
+                status = "failed";
+            }
+                return Json(status, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult getProductCode(string keyword)
         {
             var codes = from m in entityOBJ.tbl_productDtls
@@ -103,46 +149,103 @@ namespace atAcc.Controllers
             var id = "";	
             tbl_invoice objuser = new tbl_invoice();	
             string voucher = obj.voucher;	
-            string invoice_id = voucher;	
-            objuser.invoice_id = invoice_id;	
-            objuser.voucher = obj.voucher;	
-            objuser.voucherArabic = obj.voucherArabic;	
-            objuser.cash_party_acc = obj.cash_party_acc;	
-            objuser.type = obj.type;	
-            objuser.acc_id = obj.acc_id;	
-            objuser.remarks = obj.remarks;	
-            objuser.depot_loc = obj.depot_loc;	
-            objuser.purchase_acc = obj.purchase_acc;	
-            objuser.date = obj.date;	
-            objuser.party_vno = obj.party_vno;	
-            objuser.spl_disc = obj.spl_disc;	
-            objuser.gst = obj.gst;	
-            objuser.addl_per = obj.addl_per;	
-            objuser.invoice_type = "2";	
-            objuser.created_at = DateTime.Now;	
-            objuser.updated_at = DateTime.Now;	
-            objuser.tot_net = obj.tot_net;	
-            objuser.tot_qty = obj.tot_qty;	
-            objuser.tot_gross = obj.tot_gross;	
-            entityOBJ.tbl_invoice.Add(objuser);	
-            if (entityOBJ.SaveChanges() > 0)	
-            {	
-                id = Convert.ToString(entityOBJ.tbl_invoice.Max(item => item.id));	
-                if(obj.acc_id == "custom")	
-                {	
-                    tbl_custominvoice customeOBJ = new tbl_custominvoice();	
-                    customeOBJ.invoice_id = obj.voucher;	
-                    customeOBJ.party_name = obj.party_name;	
-                    customeOBJ.party_name = obj.party_name;	
-                    customeOBJ.party_vno = obj.party_vno;	
-                    entityOBJ.tbl_custominvoice.Add(customeOBJ);	
-                    entityOBJ.SaveChanges();	
-                }	
-            }	
-            else	
-            {	
-                id = "failed";	
-            }	
+            string invoice_id = voucher;
+            string actionType = obj.actionType;
+            if(actionType== "insert")
+            {
+                objuser.invoice_id = invoice_id;
+                objuser.voucher = obj.voucher;
+                objuser.voucherArabic = obj.voucherArabic;
+                objuser.cash_party_acc = obj.cash_party_acc;
+                objuser.type = obj.type;
+                objuser.acc_id = obj.acc_id;
+                objuser.remarks = obj.remarks;
+                objuser.depot_loc = obj.depot_loc;
+                objuser.purchase_acc = obj.purchase_acc;
+                objuser.date = obj.date;
+                objuser.party_vno = obj.party_vno;
+                objuser.spl_disc = obj.spl_disc;
+                objuser.gst = obj.gst;
+                objuser.addl_per = obj.addl_per;
+                objuser.invoice_type = "2";
+                objuser.created_at = DateTime.Now;
+                objuser.updated_at = DateTime.Now;
+                objuser.tot_net = obj.tot_net;
+                objuser.tot_qty = obj.tot_qty;
+                objuser.tot_gross = obj.tot_gross;
+                entityOBJ.tbl_invoice.Add(objuser);
+                if (entityOBJ.SaveChanges() > 0)
+                {
+                    id = Convert.ToString(entityOBJ.tbl_invoice.Max(item => item.id));
+                    if (obj.acc_id == "custom")
+                    {
+                        tbl_custominvoice customeOBJ = new tbl_custominvoice();
+                        customeOBJ.invoice_id = obj.voucher;
+                        customeOBJ.party_name = obj.party_name;
+                        customeOBJ.party_name = obj.party_name;
+                        customeOBJ.party_vno = obj.party_vno;
+                        entityOBJ.tbl_custominvoice.Add(customeOBJ);
+                        entityOBJ.SaveChanges();
+                    }
+                }
+                else
+                {
+                    id = "failed";
+                }
+            }
+            else
+            {
+                id = Convert.ToString( obj.id);
+                int idint = obj.id;
+                var singleRec = entityOBJ.tbl_invoice.FirstOrDefault(x => x.id == idint);
+                entityOBJ.tbl_invoice.Remove(singleRec);
+
+                List<tbl_purchaseInvoice> deps = entityOBJ.tbl_purchaseInvoice.Where(x => x.invoice_id == id).ToList();
+                entityOBJ.tbl_purchaseInvoice.RemoveRange(deps);
+
+                entityOBJ.SaveChanges();
+                objuser.invoice_id = invoice_id;
+                objuser.voucher = obj.voucher;
+                objuser.voucherArabic = obj.voucherArabic;
+                objuser.cash_party_acc = obj.cash_party_acc;
+                objuser.type = obj.type;
+                objuser.acc_id = obj.acc_id;
+                objuser.remarks = obj.remarks;
+                objuser.depot_loc = obj.depot_loc;
+                objuser.purchase_acc = obj.purchase_acc;
+                objuser.date = obj.date;
+                objuser.party_vno = obj.party_vno;
+                objuser.spl_disc = obj.spl_disc;
+                objuser.gst = obj.gst;
+                objuser.addl_per = obj.addl_per;
+                objuser.invoice_type = "2";
+                objuser.created_at = DateTime.Now;
+                objuser.updated_at = DateTime.Now;
+                objuser.tot_net = obj.tot_net;
+                objuser.tot_qty = obj.tot_qty;
+                objuser.tot_gross = obj.tot_gross;
+                entityOBJ.tbl_invoice.Add(objuser);
+                if (entityOBJ.SaveChanges() > 0)
+                {
+                    id = Convert.ToString(entityOBJ.tbl_invoice.Max(item => item.id));
+                    if (obj.acc_id == "custom")
+                    {
+                        tbl_custominvoice customeOBJ = new tbl_custominvoice();
+                        customeOBJ.invoice_id = obj.voucher;
+                        customeOBJ.party_name = obj.party_name;
+                        customeOBJ.party_name = obj.party_name;
+                        customeOBJ.party_vno = obj.party_vno;
+                        entityOBJ.tbl_custominvoice.Add(customeOBJ);
+                        entityOBJ.SaveChanges();
+                    }
+                }
+                else
+                {
+                    id = "failed";
+                }
+
+            }
+            	
             return Json(id, JsonRequestBehavior.AllowGet);	
         }
 
