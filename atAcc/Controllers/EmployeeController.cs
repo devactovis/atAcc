@@ -60,18 +60,32 @@ namespace atAcc.Controllers
                 ViewBag.type = "Add Employee";
                 return View();
             }
-            
+
         }
 
-       
+
 
         [HttpPost]
         public ActionResult SaveEmployee(EmployeeDetails objEmployee)
         {
-            if(ModelState.IsValid)
+            //if(ModelState.IsValid)
+            // {
+            tbl_accounts accOBJ = new tbl_accounts();
+            accOBJ.username = objEmployee.username;
+            accOBJ.password = objEmployee.paswd;
+            accOBJ.status = "1";
+            accOBJ.role = "employee";
+            objentity.tbl_accounts.Add(accOBJ);
+
+
+            if (objentity.SaveChanges() > 0)
             {
+
+                int id = objentity.tbl_accounts.Max(item => item.id);
+
                 tbl_employeeDtls tblOBJ = new Models.DB.tbl_employeeDtls();
                 tblOBJ.emp_id = objEmployee.emp_id;
+                tblOBJ.holder_id = id;
                 tblOBJ.emp_name = objEmployee.emp_name;
                 tblOBJ.department = objEmployee.department;
                 tblOBJ.type = objEmployee.type;
@@ -91,12 +105,14 @@ namespace atAcc.Controllers
                 tblOBJ.is_contract = objEmployee.is_contract;
                 tblOBJ.contract_end = objEmployee.contract_end;
                 tblOBJ.is_employee = objEmployee.is_employee;
+                tblOBJ.username = objEmployee.username;
+                tblOBJ.paswd = objEmployee.paswd;
                 objentity.tbl_employeeDtls.Add(tblOBJ);
-                if(objentity.SaveChanges()>0)
-                {
-                    return RedirectToAction("EmployeeView", "Employee");
-                }
+                objentity.SaveChanges();
+
+                // return RedirectToAction("EmployeeView", "Employee");
             }
+            //}
             return this.RedirectToAction("EmployeeView", "Employee");
         }
 
@@ -134,7 +150,7 @@ namespace atAcc.Controllers
 
         public ActionResult viewemployee()
         {
-            var Data= objentity.tbl_employeeDtls.ToList();
+            var Data = objentity.tbl_employeeDtls.ToList();
             ViewBag.data = Data;
             return View();
         }
@@ -149,11 +165,11 @@ namespace atAcc.Controllers
             {
                 objentity.tbl_employeeDtls.Remove(itemToRemove);
                 objentity.SaveChanges();
-                 status = "true";
+                status = "true";
             }
             else
-                 status = "true";
-            return  Json(status, JsonRequestBehavior.AllowGet);
+                status = "true";
+            return Json(status, JsonRequestBehavior.AllowGet);
         }
 
     }

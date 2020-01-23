@@ -19,6 +19,8 @@ namespace atAcc.Models.ViewModels
         public string purchase_acc { get; set; }
         public DateTime date { get; set; }
         public DateTime dateArabic { get; set; }
+        public DateTime Duedate { get; set; }
+
         public string party_vno { get; set; }
         public string spl_disc { get; set; }
         public string gst { get; set; }
@@ -32,5 +34,6 @@ namespace atAcc.Models.ViewModels
         public string party_namearabic { get; set; }
 
         public string actionType { get; set; }
+        public string payment_status { get; set; }
     }
 }

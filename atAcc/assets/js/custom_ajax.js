@@ -92,37 +92,6 @@ function Confirmation(value) {
     }
 }
 
-function ConfirmationForAll(value,url)
-{
-    var Val = confirm("Do you want to continue ?");
-    if (Val == true) {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: url,
-            data: { value: value},
-            success: function (data) {
-                if (data == "success") {
-                    location.reload();
-                }
-                else {
-                    alert("failed");
-                }
-            },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
-            }
-        });
-    }
-    else {
-        document.write("NOT CONTINUED!");
-        return false;
-    }
-    alert(url);
-}
-
-
 function clear() {
     alert("hello");
     $('#myform')[0].reset();
@@ -152,7 +121,12 @@ function saveAccountGroup() {
 }
 
 function SaveLedger() {
+        
+    }
 
+
+
+function saveMoreDtls() {
     var valdata = $("#ledgerDtls").serialize();
     $.ajax({
         type: "POST",
@@ -165,7 +139,7 @@ function SaveLedger() {
             }
             else {
 
-                $('#accountledger a[href="#moredetails"]').tab('show')
+                //$('#accountledger a[href="#moredetails"]').tab('show')
                 $('#AccountMoreDtls_ledger_id').val(data);
             }
         },
@@ -174,12 +148,6 @@ function SaveLedger() {
             alert(err.Message);
         }
     });
-}
-
-
-
-function saveMoreDtls() {
-
     var valdata = $("#ledgerMoreDetails").serialize();
     $.ajax({
         type: "POST",
@@ -199,4 +167,23 @@ function saveMoreDtls() {
             alert(err.Message);
         }
     });
+}
+
+function checkPayment()
+{
+    var selected = $('#cashpartyacc').val();
+    if(selected=="Credit")
+    {
+        $('#selectdate').show();
+    }
+}
+
+function checkDate()
+{
+    var selected = $('#cashDueDate').val();
+    if (selected == "custome") {
+        $('.cashpartyacca').show();
+        $('#cashDueDate').hide();
+        $('#customeLabel').html("Enter Custome Date");
+    }
 }

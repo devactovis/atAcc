@@ -19,11 +19,11 @@ namespace atAcc.Controllers
         }
         public ActionResult ViewInvoice()
         {
-            string invoice_id = Request["invoice_id"];   
+            string invoice_id = Request["invoice_id"];
             string invoice_type = Request["invoice_type"];
             string invoice_start = Request["invoice_start"];
             string invoice_end = Request["invoice_end"];
-            if (invoice_end == null || invoice_id == null || invoice_start==null || invoice_end == null)
+            if (invoice_end == null || invoice_id == null || invoice_start == null || invoice_end == null)
             {
                 var data = entityOBJ.tbl_invoice.ToList();
                 ViewBag.data = data;
@@ -31,7 +31,7 @@ namespace atAcc.Controllers
             else
             {
                 var query = entityOBJ.tbl_invoice.Where(a => a.id >= 1);
-                if (invoice_id !="")
+                if (invoice_id != "")
                 {
                     query = query.Where(a => a.invoice_id == invoice_id);
                 }
@@ -39,14 +39,14 @@ namespace atAcc.Controllers
                 {
                     query = query.Where(a => a.type == invoice_type);
                 }
-                if (invoice_start != ""  && invoice_end!= "")
+                if (invoice_start != "" && invoice_end != "")
                 {
-                    query = query.Where(a => a.date>=Convert.ToDateTime(invoice_start) && a.date<= Convert.ToDateTime(invoice_end));
+                    query = query.Where(a => a.date >= Convert.ToDateTime(invoice_start) && a.date <= Convert.ToDateTime(invoice_end));
                 }
                 var data = query.ToList();
                 ViewBag.data = data;
             }
-            
+
             return View();
         }
         public ActionResult PurchaseInvoiceView()
@@ -65,7 +65,7 @@ namespace atAcc.Controllers
                 .Where(a => a.id == parse).ToList();
                 ViewBag.tableData = invoice;
                 var invoice_id = invoice[0].invoice_id;
-                if (invoice[0].acc_id== "custom")
+                if (invoice[0].acc_id == "custom")
                 {
                     var custome = entityOBJ.tbl_custominvoice.Where(m => m.invoice_id == invoice_id).ToList();
                     ViewBag.custome = custome;
@@ -117,7 +117,7 @@ namespace atAcc.Controllers
             {
                 status = "failed";
             }
-                return Json(status, JsonRequestBehavior.AllowGet);
+            return Json(status, JsonRequestBehavior.AllowGet);
         }
         public JsonResult getProductCode(string keyword)
         {
@@ -129,13 +129,14 @@ namespace atAcc.Controllers
 
         public JsonResult getProduct(string id)
         {
-            List<tbl_productDtls> productdtl = entityOBJ.tbl_productDtls.Where(m=> m.product_code == id).ToList();
+            List<tbl_productDtls> productdtl = entityOBJ.tbl_productDtls.Where(m => m.product_code == id).ToList();
             List<tbl_taxInfo> taxinfo = entityOBJ.tbl_taxInfo.ToList();
 
-            var products = from e in productdtl 
+            var products = from e in productdtl
                            join d in taxinfo on e.tax_type equals d.id into table1
                            from d in table1.ToList()
-                           select new ProductDtlsModel {
+                           select new ProductDtlsModel
+                           {
                                products = e,
                                taxprcnt = d.taxprcnt.ToString()
                            };
@@ -144,14 +145,14 @@ namespace atAcc.Controllers
         }
 
         [HttpPost]
-        public ActionResult getInvoice(InvoiceBasic obj)	
-        {	
-            var id = "";	
-            tbl_invoice objuser = new tbl_invoice();	
-            string voucher = obj.voucher;	
+        public ActionResult getInvoice(InvoiceBasic obj)
+        {
+            var id = "";
+            tbl_invoice objuser = new tbl_invoice();
+            string voucher = obj.voucher;
             string invoice_id = voucher;
             string actionType = obj.actionType;
-            if(actionType== "insert")
+            if (actionType == "insert")
             {
                 objuser.invoice_id = invoice_id;
                 objuser.voucher = obj.voucher;
@@ -195,7 +196,7 @@ namespace atAcc.Controllers
             }
             else
             {
-                id = Convert.ToString( obj.id);
+                id = Convert.ToString(obj.id);
                 int idint = obj.id;
                 var singleRec = entityOBJ.tbl_invoice.FirstOrDefault(x => x.id == idint);
                 entityOBJ.tbl_invoice.Remove(singleRec);
@@ -245,8 +246,8 @@ namespace atAcc.Controllers
                 }
 
             }
-            	
-            return Json(id, JsonRequestBehavior.AllowGet);	
+
+            return Json(id, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult getInvoiceDetails(PurchaseInvoice obj)
@@ -325,7 +326,7 @@ namespace atAcc.Controllers
         public JsonResult InvoicePrint(string id)
         {
             string param1 = this.Request.QueryString["id"];
-            List<tbl_invoice> Invoice = entityOBJ.tbl_invoice.Where(m=>m.invoice_id == id).ToList();
+            List<tbl_invoice> Invoice = entityOBJ.tbl_invoice.Where(m => m.invoice_id == id).ToList();
             List<tbl_purchaseInvoice> PurchaseInvoice = entityOBJ.tbl_purchaseInvoice.ToList();
 
             var data = from e in Invoice
@@ -337,7 +338,7 @@ namespace atAcc.Controllers
                            tbl_purchaseInvoice = d
                        };
             ViewBag.data = data;
-            return Json(data, JsonRequestBehavior.AllowGet); 
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult invoiceCustome(string acc_id)
@@ -352,7 +353,7 @@ namespace atAcc.Controllers
             var data = entityOBJ.tbl_accountMoreDtls.Where(m => m.ledger_id == acc_id).ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-		
+
 
     }
 }
