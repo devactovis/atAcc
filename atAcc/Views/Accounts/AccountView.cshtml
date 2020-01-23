@@ -37,7 +37,7 @@
                             </ul>	
                             <!-- Tab panes -->	
                             <div class="tab-content">	
-                                <div class="tab-pane active" id="account" role="tabpanel">	
+                                <div class="tab-pane" id="account" role="tabpanel">	
                                     <div class="p-20">	
                                         <form role="form" method="post" action="#">	
                                             <div class="form-group m-t-0">	
@@ -45,7 +45,7 @@
                                                 <input type="text" name="groupname" class="form-control" id="groupname" required>	
                                             </div>	
                                             <div class="form-group m-t-20">	
-                                                <label>*Under</label>	
+                                                <label>* Under</label>	
                                                 <select class="select2 form-control custom-select" id="under" name="under" style="width: 100%;" required>	
                                                     <option value="1">Select</option>	
                                                     <option value="1">Select</option>	
@@ -59,7 +59,7 @@
                                         </form>	
                                     </div>	
                                 </div>	
-                                <div class="tab-pane  p-20" id="accountledger" role="tabpanel">	
+                                <div class="tab-pane active p-20" id="accountledger" role="tabpanel">	
                                     <ul class="nav nav-tabs customtab2 tabs" role="tablist">	
                                         <li class="nav-item">	
                                             <a class="nav-link active" data-toggle="tab" href="#ledgerdetails" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Ledger Details</span></a>	
@@ -70,151 +70,153 @@
                                     </ul>	
                                     <div class="tab-content">	
                                         <div class="tab-pane active" id="ledgerdetails" role="tabpanel">	
-                                            <div class="p-20">	
                                                 <form role="form" method="post" action="#" id="ledgerDtls">	
-                                                    <div class="form-group m-t-0">	
-                                                        <label>*Ledger Code</label>	
-                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_code, null, new { @class = "form-control", type = "number" })	
-                                                    </div>	
-                                                    <div class="form-group m-t-20">	
-                                                        <label>*Ledger Name</label>	
-                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_name, null, new { @class = "form-control" })	
-                                                    </div>	
-                                                    <div class="form-group m-t-20">	
-                                                        <label>Group Name</label>	
-                                                        @if (ViewBag.data != null)	
-                                                        {	
-                                                            @Html.DropDownList("AccountLedgerDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })	
-                                                        }	
-                                                        else	
-                                                        {	
-                                                            <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>	
-                                                                <option value="" disabled>Add Product Group First</option>	
-                                                            </select>	
-                                                        }	
-                                                    </div>	
-                                                    <div class="form-group m-t-20">	
-                                                        <label>*Under</label>	
-                                                        <select class="select2 form-control custom-select" name="AccountLedgerDtls.under" style="width: 100%; height:36px;" id="under" required>	
-                                                            <option value="1">Select</option>	
-                                                            <option value="1">Select</option>	
-                                                            <option value="1">Select</option>	
-                                                            <option value="1">Select</option>	
-                                                            <option value="1">Select</option>	
-                                                        </select>	
-                                                    </div>	
-                                                    <div class="form-group m-t-20">	
-                                                        <label>Discount[%]</label>	
-                                                        @Html.TextBoxFor(model => model.AccountLedgerDtls.discount, null, new { @class = "form-control" })	
-                                                    </div>	
-                                                    <button class="btn btn-primary" type="button" onclick="SaveLedger()">Save</button>	
-                                                    <button class="btn btn-primary" type="submit">Clear</button>	
-                                                </form>	
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>*Ledger Code</label>
+                                                                @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_code, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>*Ledger Name</label>
+                                                                @Html.TextBoxFor(model => model.AccountLedgerDtls.ledger_name, null, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>Group Name</label>
+                                                                @if (ViewBag.data != null)
+                                                                {
+                                                                    @Html.DropDownList("AccountLedgerDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })
+                                                                }
+                                                                else
+                                                                {
+                                                                    <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>
+                                                                        <option value="" disabled>Add Product Group First</option>
+                                                                    </select>     }
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Discount[%]</label>
+                                                                @Html.TextBoxFor(model => model.AccountLedgerDtls.discount, null, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>* Under</label>
+                                                                <select class="select2 form-control custom-select" name="AccountLedgerDtls.under" style="width: 100%;" id="under" required>
+                                                                    <option value="1">Client</option>
+                                                                    <option value="2">Supplier</option>
+                                                                    <option value="3">Both</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        
+</form>	
                                             </div>	
+                                            <div class="">
+                                                <form role="form" method="post" action="#" id="ledgerMoreDetails">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>Contact Person</label>
+                                                                @Html.HiddenFor(model => model.AccountMoreDtls.ledger_id);
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_person, null, new { @class = "form-control", id = "contact_person" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Contact Person In Arabic</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_personArabic, null, new { @class = "form-control", id = "contact_personArabic" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Address 1</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1, null, new { @class = "form-control", id = "addr1" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Address 1 in Arabic</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1Arabic, null, new { @class = "form-control", id = "addr1Arabic" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Address 2</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2, null, new { @class = "form-control", id = "addr2" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Address 2 in Arabic</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2Arabic, null, new { @class = "form-control", id = "addr2Arabic" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>City</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.city, null, new { @class = "form-control", id = "city" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>City</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.cityArabic, null, new { @class = "form-control", id = "cityArabic" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Postal Code</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.postal_code, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>Telephone</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tel_no, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Acc ID</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.acc_id, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Mobile</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.mob_no, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Email</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.email, null, new { @class = "form-control" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Vat No.[TIN]</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.vat_no, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group m-t-20">
+                                                                <label>Tax 1 Number</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tax_no, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>Group Name</label>
+                                                                @if (ViewBag.data != null)
+                                                                {
+                                                                    @Html.DropDownList("AccountMoreDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })
+}
+                                                                else
+                                                                {
+                                                                    <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>
+                                                                        <option value="" disabled>Add Product Group First</option>
+                                                                    </select>     }
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>GST Number</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.gst_no, null, new { @class = "form-control", type = "number" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>State</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state, null, new { @class = "form-control" })
+                                                            </div>
+                                                            <div class="form-group m-t-20">
+                                                                <label>State Code</label>
+                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state_code, null, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        <button class="btn btn-primary" type="button" onclick="saveMoreDtls()">Save</button>
+                                                        <button class="btn btn-primary" type="submit">Clear</button>
+                                                </form>
+                                            </div>
+
                                         </div>	
                                         <div class="tab-pane" id="moredetails" role="tabpanel">	
-                                            <div class="p-t-5 px-4">	
-                                                <form role="form" method="post" action="#" id="ledgerMoreDetails">	
-                                                    <div class="row">	
-                                                        <div class="col-md-4">	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Contact Person</label>	
-                                                                @Html.HiddenFor(model => model.AccountMoreDtls.ledger_id);	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_person, null, new { @class = "form-control" ,id= "contact_person" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Contact Person In Arabic</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.contact_personArabic, null, new { @class = "form-control", id="contact_personArabic" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Address 1</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1, null, new { @class = "form-control" ,id="addr1" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Address 1 in Arabic</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr1Arabic, null, new { @class = "form-control",id= "addr1Arabic" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Address 2</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2, null, new { @class = "form-control",id= "addr2" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Address 2 in Arabic</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.addr2Arabic, null, new { @class = "form-control", id= "addr2Arabic" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>City</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.city, null, new { @class = "form-control", id= "city" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>City</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.cityArabic, null, new { @class = "form-control", id = "cityArabic" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Postal Code</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.postal_code, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                        </div>	
-                                                        <div class="col-md-4">	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Telephone</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tel_no, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Acc ID</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.acc_id, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Mobile</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.mob_no, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Email</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.email, null, new { @class = "form-control" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Vat No.[TIN]</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.vat_no, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                        </div>	
-                                                        <div class="col-md-4">	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Tax 1 Number</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.tax_no, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>Group Name</label>	
-                                                                @if (ViewBag.data != null)	
-                                                                {	
-                                                                    @Html.DropDownList("AccountMoreDtls.grp_id", new SelectList(ViewBag.data, "grp_id", "grp_name"), "Please select a Group", new { @class = "select2 form-control custom-select" })	
-                                                                }	
-                                                                else	
-                                                                {	
-                                                                    <select class="select2 form-control custom-select" name="under" style="width: 100%; height:36px;" required>	
-                                                                        <option value="" disabled>Add Product Group First</option>	
-                                                                    </select>	
-                                                                }	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>GST Number</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.gst_no, null, new { @class = "form-control", type = "number" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>State</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state, null, new { @class = "form-control" })	
-                                                            </div>	
-                                                            <div class="form-group m-t-20">	
-                                                                <label>State Code</label>	
-                                                                @Html.TextBoxFor(model => model.AccountMoreDtls.state_code, null, new { @class = "form-control" })	
-                                                            </div>	
-                                                        </div>	
-                                                        <div style="text-align:right">	
-                                                            <button class="btn btn-primary" type="button" onclick="saveMoreDtls()">Save</button>	
-                                                            <button class="btn btn-primary" type="submit">Clear</button>	
-                                                        </div>	
-                                                    </div>	
-                                                </form>	
-                                            </div>	
+                                            	
                                         </div>	
                                     </div>	
                                 </div>	
@@ -250,7 +252,12 @@
 google.load("elements", "1", {packages: "transliteration"});	
 </script> 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>	
-<script>	
+<script>
+    $(document).ready(function () {
+        // bind form using ajaxForm 
+        $('#ledgerDtls').ajaxForm({ beforeSubmit: validate });
+    });
+    	
         function OnLoad() {	
             	
     var options = {	
